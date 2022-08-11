@@ -5,7 +5,14 @@ export const Footer = () => {
   const { t } = useTranslation('common');
 
   return (
-    <footer style={{ marginTop: 'auto', width: '100%', paddingBottom: 60 }}>
+    <footer
+      style={{
+        marginTop: 'auto',
+        width: '100%',
+        paddingBottom: 60,
+        paddingRight: 16,
+      }}
+    >
       <Grid.Container>
         <Grid xs={12} sm={0} css={{ mb: '$10' }}>
           <Row justify="space-around" align="center">

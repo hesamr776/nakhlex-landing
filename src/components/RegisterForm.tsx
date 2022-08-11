@@ -54,7 +54,7 @@ export const RegisterForm = () => {
 
   return (
     <div className="w-full">
-      <Text css={{ mt: 16, mb: 46 }}>{t('registerYourPhone')}</Text>
+      <Text css={{ mt: 16, mb: 46, w: 400 }}>{t('registerYourPhone')}</Text>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input control={control} name="phone" />
@@ -64,7 +64,8 @@ export const RegisterForm = () => {
           color="primary"
           type="submit"
           disabled={!isValid || isLoading}
-          css={{ '@smMax': { width: 300 }, '@sm': { w: 400 } }}>
+          css={{ '@smMax': { width: 300 }, '@sm': { w: 400 } }}
+        >
           {isLoading ? <Loading size="xs" /> : t('register')}
         </Button>
       </form>

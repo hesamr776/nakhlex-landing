@@ -18,7 +18,13 @@ export const Header = () => {
   const { route } = useRouter();
 
   return (
-    <header style={{ marginBottom: 'auto', width: '100%', paddingTop: 8 }}>
+    <header
+      style={{
+        marginBottom: 'auto',
+        width: '100%',
+        paddingTop: 8,
+        paddingRight: 16,
+      }}>
       <Head>
         <title>Nakhlex {route.replace('/', ' | ')}</title>
       </Head>
@@ -32,7 +38,7 @@ export const Header = () => {
           </Link>
         </Grid>
 
-        <Grid xs={3} sm={0}>
+        <Grid xs={2} sm={0}>
           <Image alt="Nakhlex menu" src="/menu.png" width={20} height={20} />
         </Grid>
 
@@ -97,8 +103,7 @@ function SelectLanguage() {
           setSelected(keys);
         }}
         disabledKeys={['ku']}
-        aria-label="languages"
-      >
+        aria-label="languages">
         <Dropdown.Item key="ar">
           <Row align="center" justify="space-between" id="lang-item-ar">
             <Text>العربیة</Text>
