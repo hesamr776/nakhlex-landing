@@ -1,11 +1,18 @@
+import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 
-import { useController, UseControllerProps, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useController, UseControllerProps, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { useState } from 'react';
-import { Button, Input as NextInput, Text } from '@nextui-org/react';
-import dynamic from 'next/dynamic';
+
+import {
+  Button,
+  Input as NextInput,
+  Row,
+  Text,
+  Image,
+  Loading,
+} from '@nextui-org/react';
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -14,25 +21,35 @@ type RegisterNow = { phone: string };
 
 export const RegisterForm = () => {
   const { t } = useTranslation('common');
-
+  const [isLoading, setIsLoading] = useState(false);
   const schema = yup.object().shape({
     phone: yup
       .string()
       .required(t('mobile'))
-      .length(11, t('yupLength', { field: t('mobile'), length: 11 }))
+      .length(10, t('yupLength', { field: t('mobile'), length: 10 }))
       .matches(phoneRegExp, t('yupValid', { field: t('mobile') })),
   });
 
   const {
     handleSubmit,
     control,
+    reset,
     formState: { isValid },
   } = useForm<RegisterNow>({
+    mode: 'onChange',
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = ({ phone }: RegisterNow) => {
+  const onSubmit = async ({ phone }: RegisterNow) => {
     console.log(phone);
+    setIsLoading(true);
+    await new Promise(res => {
+      setTimeout(() => {
+        reset();
+        res(true);
+      }, 390);
+    });
+    setIsLoading(false);
   };
 
   return (
@@ -42,8 +59,13 @@ export const RegisterForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input control={control} name="phone" />
 
-        <Button auto color="primary" disabled={!isValid}>
-          {t('register')}
+        <Button
+          auto
+          color="primary"
+          type="submit"
+          disabled={!isValid || isLoading}
+          css={{ '@smMax': { width: 300 }, '@sm': { w: 400 } }}>
+          {isLoading ? <Loading size="xs" /> : t('register')}
         </Button>
       </form>
     </div>
@@ -79,23 +101,41 @@ export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
         aria-label="register number"
         className="flex-1 focus-visible:border-0"
         placeholder={t('enterMobile')}
+        css={{
+          '@smMax': { width: 300 },
+          '@sm': { w: 400 },
+          my: '$12',
+        }}
         size="md"
+        bordered
         name={name}
         value={value}
         type="tel"
         required
-        maxLength={11}
+        maxLength={10}
         color="primary"
         onChange={onChange}
+        contentLeftStyling={false}
         onFocus={onFocus}
         onBlur={onBlur}
-        contentLeft={<p className="text-sm mb-0">+964</p>}
+        inputMode="tel"
+        helperText={error?.message}
+        helperColor="error"
+        contentLeft={
+          <Row css={{ ml: '$7' }} align="center" justify="space-between">
+            <Image src="/iraq.png" alt="nakhlex iraq" width={20} height={14} />
+            <Text>+964</Text>
+          </Row>
+        }
         contentRight={
-          <i className="typcn typcn-device-phone" style={{ fontSize: 20 }} />
+          <Image
+            src="/mobile.png"
+            alt="nakhlex iraq"
+            width={16}
+            height={21.5}
+          />
         }
       />
-
-      <Text>{error?.message}</Text>
     </div>
   );
 };

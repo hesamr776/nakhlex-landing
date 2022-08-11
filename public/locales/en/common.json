@@ -8,11 +8,11 @@
   "firstLocal": "The First local cryptocurrency exchange in Iraq",
 
   "registerYourPhone": "Enter your mobile phone number to get the Nakhlex App download link.",
-  "enterMobile": "Enter your mobile phone number to get the Nakhlex App download link.",
+  "enterMobile": "Enter your mobile",
   "register": "Register",
-  "yupRequired": "The %{field} is a required field",
-  "yupValid": "The %{field} is not valid",
-  "yupLength": "The %{field} must be exactly %{length} characters",
+  "yupRequired": "The {{field}} is a required field",
+  "yupValid": "The {{field}} is not valid",
+  "yupLength": "The {{field}} must be exactly {{length}} characters",
   "mobile": "mobile",
 
   "contactUsHint": "Our mission is to facilitate infrastructure of cryptocurrency exchange and to provide freedom of trade in MENA region.",
