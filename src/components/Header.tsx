@@ -24,7 +24,8 @@ export const Header = () => {
         width: '100%',
         paddingTop: 8,
         paddingRight: 16,
-      }}>
+      }}
+    >
       <Head>
         <title>Nakhlex {route.replace('/', ' | ')}</title>
       </Head>
@@ -32,9 +33,7 @@ export const Header = () => {
       <Row align="center" justify="space-between">
         <Grid xs={9} sm={4}>
           <Link href="/">
-            <Text weight="bold" size={20} color="primary">
-              Nakhlex
-            </Text>
+            <Image src="/logo.png" alt="Nakhlex logo" height={40} width={120} />
           </Link>
         </Grid>
 
@@ -103,7 +102,8 @@ function SelectLanguage() {
           setSelected(keys);
         }}
         disabledKeys={['ku']}
-        aria-label="languages">
+        aria-label="languages"
+      >
         <Dropdown.Item key="ar">
           <Row align="center" justify="space-between" id="lang-item-ar">
             <Text>العربیة</Text>
