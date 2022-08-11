@@ -1,5 +1,6 @@
 import { Image, Row, Table, Text } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
+import { TFunction } from 'react-i18next';
 
 const columns = [
   { name: 'Coin', uid: 'coin' },
@@ -38,6 +39,7 @@ type MarketType = {
 
 export const Market = () => {
   const { t } = useTranslation();
+
   return (
     <Table
       striped
@@ -50,7 +52,8 @@ export const Market = () => {
         my: '$20',
         pr: '$12',
       }}
-      selectionMode="none">
+      selectionMode="none"
+    >
       <Table.Header columns={columns}>
         {column => <Table.Column key={column.uid}>{column.name}</Table.Column>}
       </Table.Header>
@@ -59,7 +62,9 @@ export const Market = () => {
         {item => (
           <Table.Row>
             {columnKey => (
-              <Table.Cell>{RenderCell(item, columnKey, t)}</Table.Cell>
+              <Table.Cell>
+                {RenderCell(item, columnKey as keyof MarketType, t)}
+              </Table.Cell>
             )}
           </Table.Row>
         )}
@@ -68,7 +73,11 @@ export const Market = () => {
   );
 };
 
-const RenderCell = (market: MarketType, columnKey: React.Key, t) => {
+const RenderCell = (
+  market: MarketType,
+  columnKey: keyof MarketType,
+  t: TFunction<'translation', undefined>,
+) => {
   const cellValue = market[columnKey];
 
   switch (columnKey) {
@@ -95,7 +104,9 @@ const RenderCell = (market: MarketType, columnKey: React.Key, t) => {
     case 'price':
       return <Text>{parseFloat(cellValue).toFixed(2)}</Text>;
     case 'daily':
-      return <Text color={cellValue < 0 ? 'red' : 'green'}>{cellValue} %</Text>;
+      return (
+        <Text color={+cellValue < 0 ? 'red' : 'green'}>{cellValue} %</Text>
+      );
 
     default:
       return cellValue;
