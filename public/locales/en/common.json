@@ -4,7 +4,7 @@
   "language": "Language",
   "downloadApp": "Download App",
 
-  "tradeCrypto": "Trade crypto simply and fast",
+  "tradeCrypto": "Trade Crypto Simply and Fast",
   "firstLocal": "The First local cryptocurrency exchange in Iraq",
 
   "registerYourPhone": "Enter your mobile phone number to get the Nakhlex App download link.",
@@ -14,6 +14,10 @@
   "yupValid": "The {{field}} is not valid",
   "yupLength": "The {{field}} must be exactly {{length}} characters",
   "mobile": "mobile",
+
+  "BTC": "Bitcoin",
+  "ETH": "Ethereum",
+  "TRX": "Tron",
 
   "contactUsHint": "Our mission is to facilitate infrastructure of cryptocurrency exchange and to provide freedom of trade in MENA region.",
 
