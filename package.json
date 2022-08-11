@@ -3,20 +3,31 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.7",
+    "@nextui-org/react": "^1.0.0-beta.9",
     "next": "latest",
+    "next-i18next": "^11.3.0",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-hook-form": "^7.34.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
     "autoprefixer": "^10.4.7",
+    "eslint": "^8.21.0",
+    "eslint-config-next": "^12.2.4",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.1",
     "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.2",
+    "prettier": "^2.7.1",
     "typescript": "4.7.2"
   }
 }
