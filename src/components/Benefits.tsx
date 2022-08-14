@@ -38,7 +38,8 @@ export const Benefits = () => {
         <Text
           size={32}
           weight="bold"
-          css={{ my: '$20', '@xsMax': { fs: 20, w: 300, my: '$10' } }}>
+          css={{ my: '$20', '@xsMax': { fs: 20, w: 300, my: '$10' } }}
+        >
           {t('benefitsHint')}
         </Text>
       </Grid>
@@ -55,7 +56,8 @@ const BenefitItem = (benefit: BenefitType) => (
     sm={4}
     direction="row"
     alignItems="center"
-    justify="center">
+    justify="center"
+  >
     <Card css={{ w: 300, bg: 'transparent' }}>
       <Card.Body css={{ p: '$0' }}>
         <Card.Image

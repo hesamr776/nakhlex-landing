@@ -24,7 +24,7 @@ class MyDocument extends Document {
     const currentLocale =
       this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
     return (
-      <Html lang={currentLocale}>
+      <Html lang={currentLocale} style={{ scrollBehavior: 'smooth' }}>
         <Head>{CssBaseline.flush()}</Head>
 
         <body>

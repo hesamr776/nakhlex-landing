@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Col, Row, Text, Button, Grid, Image, Link } from '@nextui-org/react';
+import { Col, Row, Text, Grid, Image, Link } from '@nextui-org/react';
 
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
@@ -16,11 +16,12 @@ export const Header = () => {
         marginBottom: 'auto',
         width: '100%',
         paddingTop: 8,
-        // paddingRight: 16,
       }}
     >
       <Head>
-        <title>Nakhlex {route.replace('/', ' | ')}</title>
+        <title>
+          Nakhlex {route === '/' ? '| Landing' : route.replace('/', ' | ')}
+        </title>
       </Head>
 
       <Row align="center" justify="space-between">
@@ -37,15 +38,40 @@ export const Header = () => {
         <Grid xs={0} sm={8} justify="flex-end">
           <Col css={{ mw: 600 }}>
             <Row justify="space-between" align="center">
-              <Text>{t('features')}</Text>
+              {route !== '/' && (
+                <Link href="/">
+                  <Text>{t('home')}</Text>
+                </Link>
+              )}
 
-              <Text>{t('market')}</Text>
+              <Link href="/#Features">
+                <Text>{t('features')}</Text>
+              </Link>
+
+              <Link href="/#Market">
+                <Text>{t('market')}</Text>
+              </Link>
 
               <SelectLanguage />
 
-              <Button bordered color="primary">
-                {t('downloadApp')}
-              </Button>
+              <Link
+                href="/#DownloadApp"
+                css={{
+                  w: 140,
+                  h: 40,
+                  d: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  background: 'rgba(0, 76, 255, 0.06)',
+                  border: '1px solid #004CFF',
+                  boxShadow: ' 0px 2px 4px rgba(0, 0, 0, 0.1)',
+                  borderRadius: '8px',
+                }}
+              >
+                <Text weight="bold" color="#0F56FF">
+                  {t('downloadApp')}
+                </Text>
+              </Link>
             </Row>
           </Col>
         </Grid>

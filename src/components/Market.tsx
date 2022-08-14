@@ -41,34 +41,38 @@ export const Market = () => {
   const { t } = useTranslation();
 
   return (
-    <Table
-      striped
-      sticked
-      shadow={false}
-      aria-label="Market Table"
-      css={{
-        height: 'auto',
-        minWidth: '100%',
-        my: '$20',
-      }}
-      selectionMode="none"
-    >
-      <Table.Header columns={columns}>
-        {column => <Table.Column key={column.uid}>{column.name}</Table.Column>}
-      </Table.Header>
+    <section id="Market">
+      <Table
+        striped
+        sticked
+        shadow={false}
+        aria-label="Market Table"
+        css={{
+          height: 'auto',
+          minWidth: '100%',
+          my: '$20',
+        }}
+        selectionMode="none"
+      >
+        <Table.Header columns={columns}>
+          {column => (
+            <Table.Column key={column.uid}>{column.name}</Table.Column>
+          )}
+        </Table.Header>
 
-      <Table.Body items={markets}>
-        {item => (
-          <Table.Row>
-            {columnKey => (
-              <Table.Cell>
-                {RenderCell(item, columnKey as keyof MarketType, t)}
-              </Table.Cell>
-            )}
-          </Table.Row>
-        )}
-      </Table.Body>
-    </Table>
+        <Table.Body items={markets}>
+          {item => (
+            <Table.Row>
+              {columnKey => (
+                <Table.Cell>
+                  {RenderCell(item, columnKey as keyof MarketType, t)}
+                </Table.Cell>
+              )}
+            </Table.Row>
+          )}
+        </Table.Body>
+      </Table>
+    </section>
   );
 };
 
