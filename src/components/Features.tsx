@@ -31,42 +31,49 @@ export const Features = () => {
     },
   ];
   return (
-    <Grid.Container justify="space-around" css={{ mb: '$20', pr: '$12' }}>
-      <Text size={32} weight="bold" css={{ ta: 'center', my: '$20' }}>
-        {t('featuresHint')}
-      </Text>
+    <Grid.Container css={{ mb: '$20' }}>
+      <Grid xs={12} justify="center">
+        <Text
+          size={32}
+          weight="bold"
+          css={{ my: '$20', '@xsMax': { fs: 20, w: 300, my: '$10' } }}
+        >
+          {t('featuresHint')}
+        </Text>
+      </Grid>
+
       {features.map(feature => (
         <Grid
           key={`feature-${feature.id}`}
           xs={12}
           sm={4}
+          direction="row"
           alignItems="center"
           justify="center"
         >
-          <Card css={{ w: 310, bg: 'transparent' }}>
-            <Card.Body>
+          <Card css={{ w: 300, bg: 'transparent' }}>
+            <Card.Body css={{ p: '$0' }}>
               <Card.Image
                 src={feature.image}
                 width={300}
                 height={300}
                 objectFit="cover"
-                alt="nakhlex feature "
+                alt="nakhlex feature"
               />
             </Card.Body>
 
             <Card.Footer>
               <Col>
-                <Text size={18} weight="bold">
+                <Text size={18} weight="bold" css={{ mt: '$8', mb: '$4' }}>
                   {feature.header}
                 </Text>
 
-                <Text css={{ my: '$6' }}>{feature.title}</Text>
+                <Text css={{ mb: '$8' }}>{feature.title}</Text>
               </Col>
             </Card.Footer>
           </Card>
         </Grid>
       ))}
-      ;
     </Grid.Container>
   );
 };

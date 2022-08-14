@@ -1,5 +1,6 @@
-import { Grid, Link, Row, Text } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
+
+import { Grid, Link, Row, Text } from '@nextui-org/react';
 
 export const Footer = () => {
   const { t } = useTranslation('common');
@@ -10,7 +11,6 @@ export const Footer = () => {
         marginTop: 'auto',
         width: '100%',
         paddingBottom: 60,
-        paddingRight: 16,
       }}
     >
       <Grid.Container>
@@ -19,12 +19,15 @@ export const Footer = () => {
             <Link href="/aboutUs" color="text">
               {t('aboutUs')}
             </Link>
+
             <Link href="/FAQ" color="text">
               {t('FAQ')}
             </Link>
+
             <Link href="/contactUs" color="text">
               {t('contactUs')}
             </Link>
+
             <Link href="/legalAndPrivacy" color="text">
               {t('legalAndPrivacy')}
             </Link>
@@ -48,12 +51,15 @@ export const Footer = () => {
             <Link href="/aboutUs" color="text">
               {t('aboutUs')}
             </Link>
+
             <Link href="/FAQ" color="text">
               {t('FAQ')}
             </Link>
+
             <Link href="/contactUs" color="text">
               {t('contactUs')}
             </Link>
+
             <Link href="/legalAndPrivacy" color="text">
               {t('legalAndPrivacy')}
             </Link>

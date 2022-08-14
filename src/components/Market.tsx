@@ -50,7 +50,6 @@ export const Market = () => {
         height: 'auto',
         minWidth: '100%',
         my: '$20',
-        pr: '$12',
       }}
       selectionMode="none"
     >

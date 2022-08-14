@@ -13,6 +13,7 @@ import {
   Image,
   Loading,
 } from '@nextui-org/react';
+import { useWindowSize } from '../hooks/dimensions';
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -20,12 +21,14 @@ const phoneRegExp =
 type RegisterNow = { phone: string };
 
 export const RegisterForm = () => {
+  const { width } = useWindowSize();
   const { t } = useTranslation('common');
   const [isLoading, setIsLoading] = useState(false);
+
   const schema = yup.object().shape({
     phone: yup
       .string()
-      .required(t('mobile'))
+      .required(t('yupRequired', { field: t('mobile') }))
       .length(10, t('yupLength', { field: t('mobile'), length: 10 }))
       .matches(phoneRegExp, t('yupValid', { field: t('mobile') })),
   });
@@ -53,8 +56,10 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div className="w-full">
-      <Text css={{ mt: 16, mb: 46, w: 400 }}>{t('registerYourPhone')}</Text>
+    <>
+      <Text css={{ mt: 16, '@xsMax': { w: 260 }, '@xs': { w: 400, mb: 46 } }}>
+        {t('registerYourPhone')}
+      </Text>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input control={control} name="phone" />
@@ -64,17 +69,18 @@ export const RegisterForm = () => {
           color="primary"
           type="submit"
           disabled={!isValid || isLoading}
-          css={{ '@smMax': { width: 300 }, '@sm': { w: 400 } }}
+          css={{ w: 400, mw: (width || 320) - 60 }}
         >
           {isLoading ? <Loading size="xs" /> : t('register')}
         </Button>
       </form>
-    </div>
+    </>
   );
 };
 
 export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
   const { t } = useTranslation('common');
+  const { width } = useWindowSize();
 
   const {
     field: { value = '', onChange },
@@ -89,54 +95,48 @@ export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
 
   const onFocus = () => setIsFocussed(true);
 
-  const border = error
+  const borderColor = error
     ? '1px solid red'
     : isFocussed
     ? '1px solid purple'
     : '1px solid lightGray';
 
   return (
-    <div>
-      <NextInput
-        id="register number"
-        aria-label="register number"
-        className="flex-1 focus-visible:border-0"
-        placeholder={t('enterMobile')}
-        css={{
-          '@smMax': { width: 300 },
-          '@sm': { w: 400 },
-          my: '$12',
-        }}
-        size="md"
-        bordered
-        name={name}
-        value={value}
-        type="tel"
-        required
-        maxLength={10}
-        color="primary"
-        onChange={onChange}
-        contentLeftStyling={false}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        inputMode="tel"
-        helperText={error?.message}
-        helperColor="error"
-        contentLeft={
-          <Row css={{ ml: '$7' }} align="center" justify="space-between">
-            <Image src="/iraq.png" alt="nakhlex iraq" width={20} height={14} />
-            <Text>+964</Text>
-          </Row>
-        }
-        contentRight={
-          <Image
-            src="/mobile.png"
-            alt="nakhlex iraq"
-            width={16}
-            height={21.5}
-          />
-        }
-      />
-    </div>
+    <NextInput
+      id="register number"
+      aria-label="register number"
+      className="flex-1 focus-visible:border-0"
+      placeholder={t('enterMobile')}
+      css={{
+        w: 400,
+        mw: (width || 320) - 60,
+        my: '$12',
+        borderColor,
+      }}
+      size="md"
+      bordered
+      name={name}
+      value={value}
+      type="tel"
+      required
+      maxLength={10}
+      color="primary"
+      onChange={onChange}
+      contentLeftStyling={false}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      inputMode="tel"
+      helperText={error?.message}
+      helperColor="error"
+      contentLeft={
+        <Row css={{ ml: '$7' }} align="center" justify="space-between">
+          <Image src="/iraq.png" alt="nakhlex iraq" width={20} height={14} />
+          <Text>+964</Text>
+        </Row>
+      }
+      contentRight={
+        <Image src="/mobile.png" alt="nakhlex iraq" width={16} height={21.5} />
+      }
+    />
   );
 };

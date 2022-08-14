@@ -1,7 +1,11 @@
 import { Row, Image, Link } from '@nextui-org/react';
 
-export const Socials = () => (
-  <Row css={{ w: 110, mt: 100 }} align="center">
+export const Socials = ({ large }: { large?: boolean }) => (
+  <Row
+    css={{ w: large ? 216 : 120, mt: 80, mb: 16 }}
+    align="center"
+    justify="space-between"
+  >
     <Link href="https://www.instagram.com/nakhlex_official/" target="_blank">
       <Image
         src="/facebook.png"
