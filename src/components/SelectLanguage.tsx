@@ -48,7 +48,8 @@ export const SelectLanguage = () => {
               bg: 'transparent',
               outline: 'transparent',
               pl: '$0',
-            }}>
+            }}
+          >
             <Text css={{ m: '$0', ta: 'start' }} size={16}>
               {selectedValue}
             </Text>
@@ -72,7 +73,8 @@ export const SelectLanguage = () => {
                 mx: '$8',
                 borderTop: index > 0 ? '1px solid #C0C6CF' : undefined,
               }}
-              key={`language-${language.id}`}>
+              key={`language-${language.id}`}
+            >
               <Text color={language.disabled ? 'gray' : undefined}>
                 {language.label}
               </Text>
@@ -82,7 +84,8 @@ export const SelectLanguage = () => {
                 css={{ mt: '$0!important', py: 10 }}
                 value={language.id}
                 disabled={language.disabled}
-                color="primary"></Radio>
+                color="primary"
+              ></Radio>
             </Row>
           ))}
         </Radio.Group>

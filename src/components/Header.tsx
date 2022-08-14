@@ -3,6 +3,7 @@ import { Col, Row, Text, Button, Grid, Image, Link } from '@nextui-org/react';
 
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { Menu } from './Menu';
 import { SelectLanguage } from './SelectLanguage';
 
 export const Header = () => {
@@ -16,7 +17,8 @@ export const Header = () => {
         width: '100%',
         paddingTop: 8,
         // paddingRight: 16,
-      }}>
+      }}
+    >
       <Head>
         <title>Nakhlex {route.replace('/', ' | ')}</title>
       </Head>
@@ -29,7 +31,7 @@ export const Header = () => {
         </Grid>
 
         <Grid xs={2} sm={0}>
-          <Image alt="Nakhlex menu" src="/menu.png" width={20} height={20} />
+          <Menu />
         </Grid>
 
         <Grid xs={0} sm={8} justify="flex-end">
