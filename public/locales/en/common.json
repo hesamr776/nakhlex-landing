@@ -1,4 +1,5 @@
 {
+  "home": "Home",
   "features": "Features",
   "market": "Market",
   "language": "Language",
@@ -19,21 +20,26 @@
   "ETH": "Ethereum",
   "TRX": "Tron",
 
-  "featuresHint": "The one-stop Cryptocurrency platform in Iraq",
+  "benefitsHint": "The one-stop Cryptocurrency platform in Iraq",
 
-  "feature-1": "Languages Coverage",
-  "featureHint-1": "Our Arabic and Kurdish clients could select their own languages for making trading easy to use both in App usage and support.",
+  "benefit-1": "Languages Coverage",
+  "benefitHint-1": "Our Arabic and Kurdish clients could select their own languages for making trading easy to use both in App usage and support.",
 
-  "feature-2": "Quick KYC Under 30 Minutes!",
-  "featureHint-2": "Authentication is under 30 minutes to make KYC process faster than ever to save our clients time.",
+  "benefit-2": "Quick KYC Under 30 Minutes!",
+  "benefitHint-2": "Authentication is under 30 minutes to make KYC process faster than ever to save our clients time.",
 
-  "feature-3": "Simple And Easy To Use",
-  "featureHint-3": "Nakhlex has been designed to be simple than every other crypto trading platforms by providing the best user experience.",
+  "benefit-3": "Simple And Easy To Use",
+  "benefitHint-3": "Nakhlex has been designed to be simple than every other crypto trading platforms by providing the best user experience.",
+
+  "featuresFull": "Nakhlex Features",
+  "featuresHint": "Nakhlex is the easiest, fastest and safest App in cryptocurrency based on the needs of people for buying and selling crypto in Iraq. Easily swap between main features and choose your suitable way of trading.",
 
   "downloadNakhlex": "Download Nakhlex Exchange App Easily!",
   "downloadNakhlexHint": "A safe and easy to use cryptocurrency exchange along with your moments.",
 
   "contactUsHint": "Our mission is to facilitate infrastructure of cryptocurrency exchange and to provide freedom of trade in MENA region.",
+
+  "downloadLegal": "Download PFD",
 
   "legal": "Legal",
   "legalHint": "Congue dolor enim ipsum platea duis purus auctor. Ut vehicula nisl porta suspendisse vel viverra sed eget. Rhoncus, proin aliquet sagittis in rutrum feugiat mauris. Dictumst semper erat turpis pulvinar nulla hac at. Duis ridiculus tempor ut sit sagittis, a. Adipiscing pulvinar sed velit ullamcorper elementum leo cursus proin. Lobortis fringilla odio tempus, feugiat. Fermentum odio turpis et, scelerisque semper. Fermentum eu ante ut quisque. Orci et mi volutpat eu volutpat. Et risus sed nunc, in faucibus. Eget nisi, in sapien ultricies. Tempor sit elementum ullamcorper nisi diam consequat tortor pulvinar. Fames lectus proin morbi nunc. Ultrices ac, at elementum ultrices. Nisl nunc porta non diam laoreet nulla volutpat. Tempor pulvinar nam posuere leo. Adipiscing sit quam convallis risus egestas posuere. Eu gravida amet, at justo, felis augue tempus faucibus. Placerat tellus aliquam aliquam enim gravida a semper viverra. Dictum rhoncus, leo ac tellus sem platea rutrum orci et. Amet, sed urna velit fringilla ultrices congue ac cras. Pharetra, ipsum, odio accumsan non. Sagittis massa est ullamcorper viverra feugiat pharetra nunc sagittis. Lacus venenatis nunc lectus nisl amet integer tortor eget. Massa feugiat ipsum, id justo, ipsum porta sociis. Ultrices sagittis congue convallis vel purus. Ac a, interdum integer ac integer vitae dignissim id. Nunc interdum mattis sollicitudin proin in egestas eleifend. Lacus, morbi a, eu cras adipiscing. Odio vestibulum amet, ut proin posuere facilisi pellentesque quam. Massa ultricies orci, a est neque. Porta purus nec quisque dis. Sit massa tortor neque mattis. Ut vulputate magna nascetur turpis consectetur lectus sapien. Massa convallis euismod enim est tristique. Fames id commodo varius ipsum tincidunt posuere dolor. Ut viverra nec adipiscing odio. Quis eu ornare eget non. Ipsum ac in diam posuere. Purus nunc scelerisque rhoncus, quis quis purus eget dignissim. Aliquet enim nibh pellentesque pulvinar nibh nunc lorem augue. Quis tellus commodo aliquam ornare ornare. Pharetra nibh cras urna enim, commodo eu. In nisl amet odio velit adipiscing. Mattis at facilisis varius mattis sed pellentesque odio at in.",
