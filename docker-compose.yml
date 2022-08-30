@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  iraq-web:
+    image: iraq-web
+    build: ./
+    container_name: iraq-web
+    # volumes:
+    #   - ./app:/app
+    ports:
+      - '8080:3000'
+    restart: always
