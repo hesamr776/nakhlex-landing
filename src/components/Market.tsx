@@ -1,6 +1,19 @@
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+
 import { Image, Row, Table, Text } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
 import { TFunction } from 'react-i18next';
+
+import Echo from 'laravel-echo';
+import socketIOClient from 'socket.io-client';
+import { Abbreviation, MarketType, PriceType } from '../types';
+
+export const echo = new Echo({
+  host: 'wss://staging.bitbayt.com',
+  path: '/ws/socket.io',
+  broadcaster: 'socket.io',
+  client: socketIOClient,
+});
 
 const columns = [
   { name: 'Coin', uid: 'coin' },
@@ -8,37 +21,39 @@ const columns = [
   { name: '24h %', uid: 'daily' },
 ];
 
-const markets: MarketType[] = [
+const initMarkets: MarketType[] = [
   {
     id: 'BTC',
     coin: 'BTC',
-    price: '21234.321341423',
+    price: '19902.49',
     daily: '2.4',
   },
   {
     id: 'ETH',
     coin: 'ETH',
-    price: '1634.321341423',
+    price: '1572.09',
     daily: '3.3',
+  },
+  {
+    id: 'USDT',
+    coin: 'USDT',
+    price: '1.00',
+    daily: '0.0',
   },
   {
     id: 'TRX',
     coin: 'TRX',
-    price: '0.321341423',
+    price: '0.06',
     daily: '-2.3',
   },
 ];
-type abbreviation = 'BTC' | 'ETH' | 'TRX';
-
-type MarketType = {
-  id: abbreviation;
-  coin: abbreviation;
-  price: string;
-  daily: string;
-};
 
 export const Market = () => {
   const { t } = useTranslation();
+  const [markets, setMarkets] = useState(initMarkets);
+
+  use24CoinStatus();
+  useCryptoChannel(setMarkets);
 
   return (
     <section id="Market">
@@ -114,4 +129,50 @@ const RenderCell = (
     default:
       return cellValue;
   }
+};
+
+const use24CoinStatus = () => {
+  const myHeaders = new Headers();
+  myHeaders.append('Authorization', 'Bearer null');
+  myHeaders.append('Accept', 'application/json');
+
+  const requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow' as RequestRedirect,
+  };
+
+  useEffect(() => {
+    fetch('https://staging.bitbayt.com/api/get24CoinStatus', requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+};
+
+const useCryptoChannel = (
+  setMarkets: Dispatch<SetStateAction<MarketType[]>>,
+) => {
+  useEffect(() => {
+    echo.channel('crypto-channel').listen('.Price', (event: PriceType) => {
+      const prices = event.prices.global;
+
+      const newMarkets = (Object.keys(prices) as Abbreviation[]).map(id => {
+        const index = initMarkets.findIndex(initItem => initItem.id === id);
+
+        return {
+          ...initMarkets[index],
+          price: prices[id].USD,
+        };
+      });
+
+      setMarkets(newMarkets);
+    });
+
+    return () => {
+      echo.leave('');
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 };
