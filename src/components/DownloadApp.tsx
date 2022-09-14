@@ -19,8 +19,7 @@ export const DownloadApp = () => {
           ml: 200,
           pb: 0,
           '@smMax': { mt: 250, ml: 0, w: '100%', pb: 40 },
-        }}
-      >
+        }}>
         <Grid
           xs={12}
           sm={4}
@@ -28,13 +27,12 @@ export const DownloadApp = () => {
             mt: -46,
             ml: -220,
             '@smMax': { mt: -200, ml: 0, mb: '$10' },
-          }}
-        >
+          }}>
           <Image src="/download.png" alt="Download Nakhlex" css={{ mw: 330 }} />
         </Grid>
 
         <Grid xs={12} sm={4} justify="center">
-          <Text size={32} color="#6554C0" weight="bold" css={{ mw: 260 }}>
+          <Text size={32} color="$primary" weight="bold" css={{ mw: 260 }}>
             {t('downloadNakhlex')}
           </Text>
         </Grid>
@@ -48,8 +46,7 @@ export const DownloadApp = () => {
             <Col>
               <Link
                 href="https://www.instagram.com/nakhlex_official/"
-                target="_blank"
-              >
+                target="_blank">
                 <Image
                   src="/app-store.png"
                   alt="nakhlex app store"
@@ -61,8 +58,7 @@ export const DownloadApp = () => {
             <Col>
               <Link
                 href="https://www.instagram.com/nakhlex_official/"
-                target="_blank"
-              >
+                target="_blank">
                 <Image
                   src="/google-play.png"
                   alt="nakhlex google play"

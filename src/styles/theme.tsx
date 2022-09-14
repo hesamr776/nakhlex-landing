@@ -6,10 +6,10 @@ export const theme = createTheme({
     colors: {
       blue200: '#BBC1FF',
       blue300: '#838EFF',
-      blue400: '#606CE2',
+      blue400: '#006699',
       blue500: '#3E48B0',
       blue600: '#1C2572',
-      blue700: '#050B3F',
+      blue700: '#015D8B',
 
       primaryLight: '$blue200',
       primaryLightHover: '$blue300',

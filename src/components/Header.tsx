@@ -15,9 +15,7 @@ export const Header = () => {
       style={{
         marginBottom: 'auto',
         width: '100%',
-        paddingTop: 8,
-      }}
-    >
+      }}>
       <Head>
         <title>
           Nakhlex {route === '/' ? '| Landing' : route.replace('/', ' | ')}
@@ -27,7 +25,7 @@ export const Header = () => {
       <Row align="center" justify="space-between">
         <Grid xs={9} sm={4}>
           <Link href="/">
-            <Image src="/logo.png" alt="Nakhlex logo" height={40} width={120} />
+            <Image src="/logo.png" alt="Nakhlex logo" height={62} width={160} />
           </Link>
         </Grid>
 
@@ -62,13 +60,13 @@ export const Header = () => {
                   d: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  background: 'rgba(0, 76, 255, 0.06)',
-                  border: '1px solid #004CFF',
-                  boxShadow: ' 0px 2px 4px rgba(0, 0, 0, 0.1)',
+                  background: 'rgba(0, 102, 153, 0.2)', // #006699
+
+                  border: '1px solid $primary',
+                  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
                   borderRadius: '8px',
-                }}
-              >
-                <Text weight="bold" color="#0F56FF">
+                }}>
+                <Text weight="bold" color="$primary">
                   {t('downloadApp')}
                 </Text>
               </Link>

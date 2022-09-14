@@ -13,8 +13,7 @@ export const Intro = () => {
       gap={1}
       justify="center"
       alignItems="flex-start"
-      color="$primary"
-    >
+      color="$primary">
       <Grid xs={12} sm={0}>
         <Image
           css={{ mw: 600 }}
@@ -28,23 +27,21 @@ export const Intro = () => {
         <Text
           h2
           size={20}
-          color="#342779"
+          color="$blue700"
           css={{
             lh: '36px',
             '@xsMax': { fs: 16 },
             '@sm': { mt: '$16' },
             '@md': { mt: '$28' },
-          }}
-        >
+          }}>
           {t('tradeCrypto')}
         </Text>
 
         <Text
           h1
           size={48}
-          color="#6554C0"
-          css={{ lh: '105%', '@xsMax': { fs: 30 } }}
-        >
+          color="$primary"
+          css={{ lh: '105%', '@xsMax': { fs: 30 } }}>
           {t('firstLocal')}
         </Text>
 

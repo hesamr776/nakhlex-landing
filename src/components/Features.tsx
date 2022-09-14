@@ -17,8 +17,7 @@ export const Features = () => {
       <Text
         size={32}
         weight="bold"
-        css={{ pt: '$20', mb: '$8', '@xsMax': { fs: 24 } }}
-      >
+        css={{ pt: '$20', mb: '$8', '@xsMax': { fs: 24 } }}>
         {t('featuresFull')}
       </Text>
 
@@ -30,8 +29,7 @@ export const Features = () => {
         <Grid
           xs={12}
           sm={10}
-          css={{ minHeight: 410, '@smMax': { minHeight: 600 } }}
-        >
+          css={{ minHeight: 410, '@smMax': { minHeight: 600 } }}>
           {tab === 'P2P' && <P2P />}
         </Grid>
       </Grid.Container>
@@ -58,16 +56,14 @@ const Tabs = ({
         d: 'flex',
         justifyContent: 'center',
         borderBottom: '2px solid',
-        borderBottomColor: activeTab === tab.id ? '#6554C0' : '#BBBBBB',
-      }}
-    >
+        borderBottomColor: activeTab === tab.id ? '$primary' : '#BBBBBB',
+      }}>
       <Button onPress={() => setTab(tab.id)} css={{ w: '100%' }}>
         <Text
           size={18}
           weight="bold"
           css={{ '@xsMax': { fs: 14 } }}
-          color={activeTab === tab.id ? '#6554C0' : '#BBBBBB'}
-        >
+          color={activeTab === tab.id ? '$primary' : '#BBBBBB'}>
           {tab.label}
         </Text>
       </Button>
@@ -82,8 +78,7 @@ const Tabs = ({
         w: '100%',
         m: '40px 0',
         justifyContent: 'space-between',
-      }}
-    >
+      }}>
       {tabs.map(TabItem)}
     </Button.Group>
   );
@@ -123,8 +118,7 @@ const P2P = () => (
             border: '1px solid #fff',
           }}
           justify="center"
-          xs={12}
-        >
+          xs={12}>
           <Text size={18} weight="bold">
             How P2P Works
           </Text>
@@ -138,8 +132,7 @@ const P2P = () => (
             border: '1px solid #fff',
           }}
           justify="center"
-          xs={6}
-        >
+          xs={6}>
           <Text size={16} weight="bold">
             Buy Crypto
           </Text>
@@ -153,8 +146,7 @@ const P2P = () => (
             border: '1px solid #fff',
           }}
           justify="center"
-          xs={6}
-        >
+          xs={6}>
           <Text size={16} weight="bold">
             Sell Crypto
           </Text>
@@ -168,8 +160,7 @@ const P2P = () => (
             border: '1px solid #fff',
           }}
           xs={6}
-          direction="column"
-        >
+          direction="column">
           <Text size={14} weight="bold">
             Plan an order
           </Text>
@@ -204,8 +195,7 @@ const P2P = () => (
             border: '1px solid #fff',
           }}
           xs={6}
-          direction="column"
-        >
+          direction="column">
           <Text size={14} weight="bold">
             Plan an order
           </Text>

@@ -28,16 +28,15 @@ export const Menu = () => {
         fullScreen
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
-        {...bindings}
-      >
+        {...bindings}>
         <Modal.Header>
           <Row justify="space-between" css={{ pt: '$4' }}>
             <Link href="/">
               <Image
                 src="/logo.png"
                 alt="Nakhlex logo"
-                height={40}
-                width={120}
+                height={62}
+                width={160}
               />
             </Link>
 
@@ -45,8 +44,7 @@ export const Menu = () => {
               auto
               light
               onClick={() => setVisible(false)}
-              css={{ p: '$0' }}
-            >
+              css={{ p: '$0' }}>
               <Image
                 src="/close.png"
                 alt="Nakhlex close"
@@ -83,8 +81,7 @@ export const Menu = () => {
               ai: 'center',
               d: 'flex',
               fd: 'column',
-            }}
-          >
+            }}>
             <Socials large />
 
             <Text i color="$gray600">
