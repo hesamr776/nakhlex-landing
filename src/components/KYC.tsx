@@ -14,57 +14,71 @@ export const KYC = () => {
       <Text
         size={32}
         weight="bold"
-        css={{ pt: '$10', mb: '$8', '@xsMax': { fs: 24 } }}>
+        css={{ pt: '$10', mb: '$8', '@xsMax': { fs: 24 } }}
+      >
         {t('kycFlow')}
       </Text>
 
       <Text>{t('kycFlowHint')}</Text>
 
-      {width > 720 ? (
-        <Image
-          css={{ mw: 1200, mx: 'auto' }}
-          alt="Nakhlex Exchange"
-          src="/kycFlow.png"
-          objectFit="fill"
-        />
-      ) : (
-        <Image
-          css={{ mw: 400, mx: 'auto', mt: '$10' }}
-          alt="Nakhlex Exchange"
-          src="/kycFlow-mobile.png"
-          objectFit="fill"
-        />
-      )}
+      <KYCFlow width={width} />
 
-      <Grid.Container
-        gap={1}
-        justify="center"
-        alignItems="center"
-        color="$primary">
-        <Grid xs={12} justify="center">
-          {/* <YouTube
-            videoId="sTnm5jvjgjM"
-            opts={{ width: youtubeWidth, height: (youtubeWidth * 9) / 16 }}
-            style={{ borderRadius: 20, overflow: 'hidden' }}
-            onReady={event => {
-              event.target.pauseVideo();
-            }}
-          /> */}
-          <iframe
-            style={{ borderRadius: 20, overflow: 'hidden' }}
-            width={youtubeWidth}
-            height={(youtubeWidth * 9) / 16}
-            src="https://www.youtube.com/embed/Oo-lfZQDH4o"
-            title="Nakhlex KYC YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen></iframe>
-        </Grid>
-      </Grid.Container>
+      <Youtube width={youtubeWidth} />
 
       <Text css={{ mt: 16, w: youtubeWidth, mx: 'auto', mb: '$10' }}>
         {t('youtubeHint')}
       </Text>
     </section>
+  );
+};
+
+const KYCFlow = ({ width }: { width: number }) => {
+  return width > 720 ? (
+    <Image
+      css={{ mw: 1200, mx: 'auto' }}
+      alt="Nakhlex Exchange"
+      src="/kycFlow.png"
+      objectFit="fill"
+    />
+  ) : (
+    <Image
+      css={{ mw: 400, mx: 'auto', mt: '$10' }}
+      alt="Nakhlex Exchange"
+      src="/kycFlow-mobile.png"
+      objectFit="fill"
+    />
+  );
+};
+
+const Youtube = ({ width }: { width: number }) => {
+  return (
+    <Grid.Container
+      gap={1}
+      justify="center"
+      alignItems="center"
+      color="$primary"
+    >
+      <Grid xs={12} justify="center">
+        {/* <YouTube
+              videoId="sTnm5jvjgjM"
+              opts={{ width: youtubeWidth, height: (youtubeWidth * 9) / 16 }}
+              style={{ borderRadius: 20, overflow: 'hidden' }}
+              onReady={event => {
+                event.target.pauseVideo();
+              }}
+            />
+        */}
+        <iframe
+          style={{ borderRadius: 20, overflow: 'hidden' }}
+          width={width}
+          height={(width * 9) / 16}
+          src="https://www.youtube.com/embed/Oo-lfZQDH4o"
+          title="Nakhlex KYC YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </Grid>
+    </Grid.Container>
   );
 };
