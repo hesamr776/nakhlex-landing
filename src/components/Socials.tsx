@@ -6,7 +6,7 @@ export const Socials = ({ large }: { large?: boolean }) => (
     align="center"
     justify="space-between"
   >
-    <Link href="https://www.instagram.com/nakhlex_official/" target="_blank">
+    <Link href="https://www.facebook.com/Nakhlx" target="_blank">
       <Image
         src="/facebook.png"
         alt="nakhlex facebook"
@@ -16,7 +16,10 @@ export const Socials = ({ large }: { large?: boolean }) => (
       />
     </Link>
 
-    <Link href="https://www.instagram.com/nakhlex_official/" target="_blank">
+    <Link
+      href="https://www.youtube.com/channel/UCChnrcQIziod2XcxVO8vtsQ"
+      target="_blank"
+    >
       <Image
         src="/youtube.png"
         alt="nakhlex facebook"
@@ -26,7 +29,7 @@ export const Socials = ({ large }: { large?: boolean }) => (
       />
     </Link>
 
-    <Link href="https://www.instagram.com/nakhlex_official/" target="_blank">
+    <Link href="https://twitter.com/NNakhlex" target="_blank">
       <Image
         src="/telegram.png"
         alt="nakhlex facebook"
