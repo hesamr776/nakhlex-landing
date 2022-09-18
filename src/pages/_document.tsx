@@ -23,8 +23,12 @@ class MyDocument extends Document {
   render() {
     const currentLocale =
       this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
+
     return (
-      <Html lang={currentLocale} style={{ scrollBehavior: 'smooth' }}>
+      <Html
+        lang={currentLocale}
+        style={{ scrollBehavior: 'smooth' }}
+        dir={currentLocale === 'en' ? 'ltr' : 'rtl'}>
         <Head>{CssBaseline.flush()}</Head>
 
         <body>

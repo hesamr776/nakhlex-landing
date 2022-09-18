@@ -1,8 +1,13 @@
 import { Image, Link, Text, Grid, Row, Col } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
+import { languages } from './SelectLanguage';
 
 export const DownloadApp = () => {
   const { t } = useTranslation();
+  const { locale } = useRouter();
+
+  const { isRTL } = languages[locale as 'ar' | 'ku' | 'en'];
 
   return (
     <section id="DownloadApp">
@@ -16,17 +21,19 @@ export const DownloadApp = () => {
           px: 11,
           mt: 120,
           w: 'calc(100% - 200px)',
-          ml: 200,
+          mr: isRTL ? 200 : 0,
+          ml: isRTL ? 0 : 200,
           pb: 0,
-          '@smMax': { mt: 250, ml: 0, w: '100%', pb: 40 },
+          '@smMax': { mt: 250, mr: 0, ml: 0, w: '100%', pb: 40 },
         }}>
         <Grid
           xs={12}
           sm={4}
           css={{
             mt: -46,
-            ml: -220,
-            '@smMax': { mt: -200, ml: 0, mb: '$10' },
+            mr: isRTL ? -220 : 0,
+            ml: isRTL ? 0 : -220,
+            '@smMax': { mt: -200, mr: 0, ml: 0, mb: '$10' },
           }}>
           <Image src="/download.png" alt="Download Nakhlex" css={{ mw: 330 }} />
         </Grid>
@@ -45,7 +52,7 @@ export const DownloadApp = () => {
           <Row css={{ mw: 330 }}>
             <Col>
               <Link
-                href="https://www.instagram.com/nakhlex_official/"
+                href="https://play.google.com/store/apps/details?id=com.nakhlex.exchange"
                 target="_blank">
                 <Image
                   src="/app-store.png"
@@ -57,7 +64,7 @@ export const DownloadApp = () => {
 
             <Col>
               <Link
-                href="https://www.instagram.com/nakhlex_official/"
+                href="https://play.google.com/store/apps/details?id=com.nakhlex.exchange"
                 target="_blank">
                 <Image
                   src="/google-play.png"
