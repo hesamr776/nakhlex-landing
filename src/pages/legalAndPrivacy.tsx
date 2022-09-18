@@ -2,15 +2,37 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
 import { Grid, Button, Text, Image, Row } from '@nextui-org/react';
+import { useRouter } from 'next/router';
 
-const contents = ['legal', 'privacy', 'mobilePrivacy', 'otherPrivacy'];
+const contents = [
+  'terms',
+  '1-acceptance',
+  '2-eligibility',
+  '3-description',
+  '4-further',
+  '5-registration',
+  '6-trading',
+  '7-P2P',
+  '8-advertisements',
+  '9-limitation',
+  '10-fees',
+  '11-termination',
+  '12-intellectual',
+  '13-disclaimer',
+  '14-general',
+];
 
 const LegalAndPrivacy = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
+  const { locale } = useRouter();
 
   return (
     <Grid css={{ pb: '$28' }}>
       <Button
+        as="a"
+        href={`/TermsOfUse-${locale}-v1.0.0.pdf`}
+        target="_blank"
+        name="pdf"
         size="lg"
         css={{
           position: 'fixed',
@@ -37,13 +59,13 @@ const LegalAndPrivacy = () => {
       </Button>
 
       {contents.map(content => (
-        <>
+        <div key={content}>
           <Text h1 size={32} css={{ pt: '$18', pb: '$8' }}>
             {t(content)}
           </Text>
 
           <Text size={16}>{t(`${content}Hint`)}</Text>
-        </>
+        </div>
       ))}
     </Grid>
   );
