@@ -13,8 +13,7 @@ export const Footer = () => {
         marginTop: 'auto',
         width: '100%',
         paddingBottom: 60,
-      }}
-    >
+      }}>
       <Grid.Container>
         <Grid xs={12} sm={0} css={{ mb: '$10' }}>
           <Row justify="space-around" align="center">
@@ -22,9 +21,9 @@ export const Footer = () => {
               {t('aboutUs')}
             </Link>
 
-            <Link href={useLocalLink('/FAQ')} color="text">
+            {/* <Link href={useLocalLink('/FAQ')} color="text">
               {t('FAQ')}
-            </Link>
+            </Link> */}
 
             <Link href={useLocalLink('/contactUs')} color="text">
               {t('contactUs')}
@@ -54,9 +53,9 @@ export const Footer = () => {
               {t('aboutUs')}
             </Link>
 
-            <Link href={useLocalLink('/FAQ')} color="text">
+            {/* <Link href={useLocalLink('/FAQ')} color="text">
               {t('FAQ')}
-            </Link>
+            </Link> */}
 
             <Link href={useLocalLink('/contactUs')} color="text">
               {t('contactUs')}

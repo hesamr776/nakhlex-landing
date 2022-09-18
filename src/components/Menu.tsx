@@ -68,9 +68,9 @@ export const Menu = () => {
             {t('aboutUs')}
           </Link>
 
-          <Link href={useLocalLink('/FAQ')} color="text" css={{ mb: '$12' }}>
+          {/* <Link href={useLocalLink('/FAQ')} color="text" css={{ mb: '$12' }}>
             {t('FAQ')}
-          </Link>
+          </Link> */}
 
           <Link
             href={useLocalLink('/contactUs')}
