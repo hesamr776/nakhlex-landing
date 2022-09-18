@@ -49,7 +49,7 @@ const initMarkets: MarketType[] = [
 ];
 
 export const Market = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const [markets, setMarkets] = useState(initMarkets);
 
   use24CoinStatus();
@@ -132,21 +132,21 @@ const RenderCell = (
 };
 
 const use24CoinStatus = () => {
-  const myHeaders = new Headers();
-  myHeaders.append('Authorization', 'Bearer null');
-  myHeaders.append('Accept', 'application/json');
+  // const myHeaders = new Headers();
+  // myHeaders.append('Authorization', 'Bearer null');
+  // myHeaders.append('Accept', 'application/json');
 
-  const requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow' as RequestRedirect,
-  };
+  // const requestOptions = {
+  //   method: 'GET',
+  //   headers: myHeaders,
+  //   redirect: 'follow' as RequestRedirect,
+  // };
 
   useEffect(() => {
-    fetch('https://staging.bitbayt.com/api/get24CoinStatus', requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+    // fetch('https://staging.bitbayt.com/api/get24CoinStatus', requestOptions)
+    //   .then(response => response.text())
+    //   .then(result => console.log(result))
+    //   .catch(error => console.log('error', error));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
