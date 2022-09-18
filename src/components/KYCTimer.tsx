@@ -1,7 +1,9 @@
 import { Grid, Image, Link, Text } from '@nextui-org/react';
 
 import { useTranslation } from 'next-i18next';
+
 import { useEffect, useState } from 'react';
+import { useLocalLink } from '../hooks/useLocalLink';
 
 const expireAt = new Date('Sat Oct 22 2022 23:00:00 GMT+0000').getTime(); // 22 october 2022
 
@@ -9,7 +11,7 @@ export const KYCTimer = () => {
   const { timer } = useTimer();
 
   return (
-    <Link href="/#kyc" css={{ w: '100%' }}>
+    <Link href={useLocalLink('/#kyc')} css={{ w: '100%' }}>
       <Grid.Container>
         <Grid xs={12} sm={0}>
           <MobileTimer timer={timer} />

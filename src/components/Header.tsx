@@ -5,9 +5,10 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { Menu } from './Menu';
 import { SelectLanguage } from './SelectLanguage';
+import { useLocalLink } from '../hooks/useLocalLink';
 
 export const Header = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const { route } = useRouter();
 
   return (
@@ -24,7 +25,7 @@ export const Header = () => {
 
       <Row align="center" justify="space-between">
         <Grid xs={9} sm={4}>
-          <Link href="/">
+          <Link href={useLocalLink('/')}>
             <Image src="/logo.png" alt="Nakhlex logo" height={62} width={160} />
           </Link>
         </Grid>
@@ -37,23 +38,24 @@ export const Header = () => {
           <Col css={{ mw: 600 }}>
             <Row justify="space-between" align="center">
               {route !== '/' && (
-                <Link href="/">
+                // eslint-disable-next-line react-hooks/rules-of-hooks
+                <Link href={useLocalLink('/')}>
                   <Text>{t('home')}</Text>
                 </Link>
               )}
 
-              <Link href="/#Features">
+              <Link href={useLocalLink('/#Features')}>
                 <Text>{t('features')}</Text>
               </Link>
 
-              <Link href="/#Market">
+              <Link href={useLocalLink('/#Market')}>
                 <Text>{t('market')}</Text>
               </Link>
 
               <SelectLanguage />
 
               <Link
-                href="/#DownloadApp"
+                href={useLocalLink('/#DownloadApp')}
                 css={{
                   w: 140,
                   h: 40,

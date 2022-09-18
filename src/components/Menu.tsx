@@ -14,9 +14,12 @@ import {
 import { SelectLanguage } from './SelectLanguage';
 import { Socials } from './Socials';
 
+import { useLocalLink } from '../hooks/useLocalLink';
+
 export const Menu = () => {
   const { setVisible, bindings } = useModal();
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
+
   return (
     <>
       <Button auto light onClick={() => setVisible(true)}>
@@ -31,7 +34,7 @@ export const Menu = () => {
         {...bindings}>
         <Modal.Header>
           <Row justify="space-between" css={{ pt: '$4' }}>
-            <Link href="/">
+            <Link href={useLocalLink('/')}>
               <Image
                 src="/logo.png"
                 alt="Nakhlex logo"
@@ -58,19 +61,28 @@ export const Menu = () => {
         <Modal.Body css={{ pt: '$16' }}>
           <SelectLanguage />
 
-          <Link href="/aboutUs" color="text" css={{ my: '$12' }}>
+          <Link
+            href={useLocalLink('/aboutUs')}
+            color="text"
+            css={{ my: '$12' }}>
             {t('aboutUs')}
           </Link>
 
-          <Link href="/FAQ" color="text" css={{ mb: '$12' }}>
+          <Link href={useLocalLink('/FAQ')} color="text" css={{ mb: '$12' }}>
             {t('FAQ')}
           </Link>
 
-          <Link href="/contactUs" color="text" css={{ mb: '$12' }}>
+          <Link
+            href={useLocalLink('/contactUs')}
+            color="text"
+            css={{ mb: '$12' }}>
             {t('contactUs')}
           </Link>
 
-          <Link href="/legalAndPrivacy" color="text" css={{ mb: '$12' }}>
+          <Link
+            href={useLocalLink('/legalAndPrivacy')}
+            color="text"
+            css={{ mb: '$12' }}>
             {t('legalAndPrivacy')}
           </Link>
         </Modal.Body>
