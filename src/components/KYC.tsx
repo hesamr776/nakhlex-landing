@@ -1,5 +1,6 @@
 import { Grid, Text, Image } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { useWindowSize } from '../hooks/dimensions';
 
 export const KYC = () => {
@@ -31,18 +32,20 @@ export const KYC = () => {
 };
 
 const KYCFlow = ({ width }: { width: number }) => {
+  const { locale } = useRouter();
+
   return width > 720 ? (
     <Image
       css={{ mw: 1200, mx: 'auto' }}
       alt="Nakhlex Exchange"
-      src="/kycFlow.png"
+      src={`/kycFlow${locale === 'en' ? '' : '-ar'}.png`}
       objectFit="fill"
     />
   ) : (
     <Image
       css={{ mw: 400, mx: 'auto', mt: '$10' }}
       alt="Nakhlex Exchange"
-      src="/kycFlow-mobile.png"
+      src={`/kycFlow-mobile${locale === 'en' ? '' : '-ar'}.png`}
       objectFit="fill"
     />
   );
