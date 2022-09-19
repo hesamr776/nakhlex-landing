@@ -1,6 +1,5 @@
 import { Grid, Text, Image } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
-// import YouTube from 'react-youtube';
 import { useWindowSize } from '../hooks/dimensions';
 
 export const KYC = () => {
@@ -14,8 +13,7 @@ export const KYC = () => {
       <Text
         size={32}
         weight="bold"
-        css={{ pt: '$10', mb: '$8', '@xsMax': { fs: 24 } }}
-      >
+        css={{ pt: '$10', mb: '$8', '@xsMax': { fs: 24 } }}>
         {t('kycFlow')}
       </Text>
 
@@ -23,7 +21,7 @@ export const KYC = () => {
 
       <KYCFlow width={width} />
 
-      <Youtube width={youtubeWidth} />
+      {/* <Youtube width={youtubeWidth} /> */}
 
       <Text css={{ mt: 16, w: youtubeWidth, mx: 'auto', mb: '$10' }}>
         {t('youtubeHint')}
@@ -56,18 +54,8 @@ const Youtube = ({ width }: { width: number }) => {
       gap={1}
       justify="center"
       alignItems="center"
-      color="$primary"
-    >
+      color="$primary">
       <Grid xs={12} justify="center">
-        {/* <YouTube
-              videoId="sTnm5jvjgjM"
-              opts={{ width: youtubeWidth, height: (youtubeWidth * 9) / 16 }}
-              style={{ borderRadius: 20, overflow: 'hidden' }}
-              onReady={event => {
-                event.target.pauseVideo();
-              }}
-            />
-        */}
         <iframe
           style={{ borderRadius: 20, overflow: 'hidden' }}
           width={width}
@@ -76,8 +64,7 @@ const Youtube = ({ width }: { width: number }) => {
           title="Nakhlex KYC YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+          allowFullScreen></iframe>
       </Grid>
     </Grid.Container>
   );
