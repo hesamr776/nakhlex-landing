@@ -69,8 +69,7 @@ export const RegisterForm = () => {
           color="primary"
           type="submit"
           disabled={!isValid || isLoading}
-          css={{ w: 400, mw: (width || 320) - 60 }}
-        >
+          css={{ w: 400, mw: (width || 320) - 60 }}>
           {isLoading ? <Loading size="xs" /> : t('register')}
         </Button>
       </form>
@@ -112,6 +111,7 @@ export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
         mw: (width || 320) - 60,
         my: '$12',
         borderColor,
+        direction: 'ltr',
       }}
       size="md"
       bordered
