@@ -28,8 +28,19 @@ class MyDocument extends Document {
       <Html
         lang={currentLocale}
         style={{ scrollBehavior: 'smooth' }}
-        dir={currentLocale === 'en' ? 'ltr' : 'rtl'}>
-        <Head>{CssBaseline.flush()}</Head>
+        dir={currentLocale === 'en' ? 'ltr' : 'rtl'}
+      >
+        <Head>
+          {CssBaseline.flush()}
+          <meta
+            name="title"
+            content="نخلِکس أول منصة محلیة للعملات المشفرة  في العراق"
+          />
+          <meta
+            name="description"
+            content="نخلِکس هي إحدی المنصات الموثوقة في العراق لبيع و شراء معظم العملات الرقمية مثل التيثر، إيثريوم، لايتکوين، إکس آر بي، ثيرون و غيرها"
+          />
+        </Head>
 
         <body>
           <Main />
