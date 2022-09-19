@@ -23,7 +23,7 @@
 
   "kycHeader": "أحصل على ساعة أبل جیل الثامن کهدية",
   "kycSubheader": "حتی تاريخ 22 أکتوبر",
-  "kycFlow": "Catch Apple Watch Series 8 Flow",
+  "kycFlow": "أحصل على ساعة أبل جیل الثامن کهدية",
   "kycFlowHint": "کن من الفائزين المحظوظين ساعة أبل جیل الثامن ثبت التطبيق وقم بإکمل إجراءات التسجيل و التوثيق آخر فرصة للمشارکة هو 22 من أکتوبر.",
   "downloadApplication": "تحميل التطبيق",
   "signUp": "تسجيل",
@@ -64,45 +64,45 @@
 
   "P2P": {
     "name": "تداول P2P",
-    "description": "Buy and sell USDT(Tether) safely and easily on Nakhlex P2P Trade platform. Find the best offer and buy and sell USDT with Your Preferred Payment Methods.",
-    "advantages": "Advantages of P2P Trade",
+    "description": "قم ببیع و شراء USDT(التيثر)آمناً و بسهولة في قسم تداول P2P  في منصة نخلکس.إبحث عن أحسن عرض و قم ببیع و شراء USDT بطرق الدفع المفضلة لديک.",
+    "advantages": "ميّزات تداول P2P",
 
-    "advantage01": "Low cost transaction fees",
-    "advantage02": "Flexible payment methods",
-    "advantage03": "Trade at your preferred prices",
-    "advantage04": "Protection for your privacy",
+    "advantage01": "عمولة تداول منخفضة",
+    "advantage02": "طرق دفع متعددة",
+    "advantage03": "قم بالتداول بسعرک المفضل",
+    "advantage04": "الحفاظ علی الخصوصية",
 
-    "buy": "Buy Crypto",
-    "sell": "Sell Crypto",
+    "buy": "شراء العملات الرقمية",
+    "sell": "بيع العملة الرقمية",
 
     "buyItem01": {
-      "title": "Plan an order",
-      "subtitle": "Once you place a P2P order, the crypto asset will be escrowed by Nakhlex P2P."
+      "title": "قم بإنشاء طلب",
+      "subtitle": "عندما تنشأ طلب P2P سيتم ضمان الأصول الرقمية بواسطة  قسم P2P لنخلکس."
     },
 
     "buyItem02": {
-      "title": "Pay the Seller",
-      "subtitle": "Send money to the seller via the suggested payment methods. Complete the fiat transaction and click \"I've paid\" on Nakhlex P2P."
+      "title": "ادفع للبائع",
+      "subtitle": "حول الأموال إلى البائع عبر طرق الدفع المقترحة.کمل تحويل مبلغ المعاملة و أنقر علی \"تم الدفع\" في قسم P2P لنخلِکس"
     },
 
     "buyItem03": {
-      "title": "Get your Crypto",
-      "subtitle": "Once the seller confirms receipt of money, the escrowed crypto will be released to you."
+      "title": "إحصل علی عملاتک الرقمية",
+      "subtitle": "بمجرد تأكيد البائع على استلام الأموال ، سيتم إطلاق العملة المشفرة  لك."
     },
 
     "sellItem01": {
-      "title": "Plan an order",
-      "subtitle": "After you place an order, your crypto will be escrowed by Nakhlex P2P."
+      "title": "قم بإنشاء طلب ",
+      "subtitle": "عندما تنشأ طلب P2P سيتم ضمان الأصول الرقمية بواسطة  قسم P2P لنخلِکس."
     },
 
     "sellItem02": {
-      "title": "Confirm the Payment",
-      "subtitle": "Check the transaction record in the given payment account, and make sure you receive the money sent by the buyer."
+      "title": "تأکد من الدفع",
+      "subtitle": "تحقق من سجل المعاملة في حساب الدفع المحدد ، وتأكد من استلام الأموال التي أرسلها المشتري."
     },
 
     "sellItem03": {
-      "title": "Release Crypto",
-      "subtitle": "Once you confirm the receipt of money, release crypto to the buyer on Nakhlex P2P."
+      "title": "إطلاق العملة الرقمية",
+      "subtitle": "بمجرد تأكيد استلام الأموال ، قم إطلاق العملة المشفرة للمشتري في قسم P2P لنخلِکس"
     }
   },
 
@@ -110,89 +110,27 @@
     "name": "التداول المباشر",
 
     "description": " بالإضافة إلى خدمات تداول نظیر لنظیر ( P2P) و التداول السریع  ، توفر نخلکس قسم VIP للمستخدمین الذين يتداولون بمبالغ أكثر من 3000 دولار في المعاملات.",
-    "advantages": "Advantages of P2P Trade",
+    "advantages": "ميّزات التداول المباشر",
 
-    "advantage01": "Low cost transaction fees",
-    "advantage02": "Flexible payment methods",
-    "advantage03": "Trade at your preferred prices",
-    "advantage04": "Protection for your privacy",
+    "advantage01": "عمولة تداول منخفضة",
+    "advantage02": "طرق دفع متعددة",
+    "advantage03": "الحفاظ علی الخصوصية",
+    "advantage04": "",
 
-    "buy": "Buy Crypto",
-    "sell": "Sell Crypto",
-
-    "buyItem01": {
-      "title": "Plan an order",
-      "subtitle": "Once you place a P2P order, the crypto asset will be escrowed by Nakhlex P2P."
-    },
-
-    "buyItem02": {
-      "title": "Pay the Seller",
-      "subtitle": "Send money to the seller via the suggested payment methods. Complete the fiat transaction and click \"I've paid\" on Nakhlex P2P."
-    },
-
-    "buyItem03": {
-      "title": "Get your Crypto",
-      "subtitle": "Once the seller confirms receipt of money, the escrowed crypto will be released to you."
-    },
-
-    "sellItem01": {
-      "title": "Plan an order",
-      "subtitle": "After you place an order, your crypto will be escrowed by Nakhlex P2P."
-    },
-
-    "sellItem02": {
-      "title": "Confirm the Payment",
-      "subtitle": "Check the transaction record in the given payment account, and make sure you receive the money sent by the buyer."
-    },
-
-    "sellItem03": {
-      "title": "Release Crypto",
-      "subtitle": "Once you confirm the receipt of money, release crypto to the buyer on Nakhlex P2P."
-    }
+    "how": "كيف يعمل التداول المباشر في خدمة التداول المباشر ، يمكن لمستخدمينا التواصل معنا عبر الواتسأب مباشرة من  أجل رفقة VIP و الزر لهذه العملية موجود في الصفحة الرئيسية من التطبيق ."
   },
 
   "Express": {
     "name": "التداول السريع",
     "description": " في قسم التداول السريع ، يمكنك شراء أو بيع التيثر في نفس الوقت .  في الواقع ، يمكنك بيع العملات التي يتم دعمها في نخلکس والحصول على التيثر بسرعة.  أيضًا ، يمكنك الحصول على عملات رقمية أخرى باستخدام التيثر الخاص بك.",
-    "advantages": "Advantages of P2P Trade",
+    "advantages": "ميّزات التداول السريع",
 
-    "advantage01": "Low cost transaction fees",
-    "advantage02": "Flexible payment methods",
-    "advantage03": "Trade at your preferred prices",
-    "advantage04": "Protection for your privacy",
+    "advantage01": "عمولة تداول منخفضة",
+    "advantage02": "الحفاظ علی الخصوصية",
+    "advantage03": "",
+    "advantage04": "",
 
-    "buy": "Buy Crypto",
-    "sell": "Sell Crypto",
-
-    "buyItem01": {
-      "title": "Plan an order",
-      "subtitle": "Once you place a P2P order, the crypto asset will be escrowed by Nakhlex P2P."
-    },
-
-    "buyItem02": {
-      "title": "Pay the Seller",
-      "subtitle": "Send money to the seller via the suggested payment methods. Complete the fiat transaction and click \"I've paid\" on Nakhlex P2P."
-    },
-
-    "buyItem03": {
-      "title": "Get your Crypto",
-      "subtitle": "Once the seller confirms receipt of money, the escrowed crypto will be released to you."
-    },
-
-    "sellItem01": {
-      "title": "Plan an order",
-      "subtitle": "After you place an order, your crypto will be escrowed by Nakhlex P2P."
-    },
-
-    "sellItem02": {
-      "title": "Confirm the Payment",
-      "subtitle": "Check the transaction record in the given payment account, and make sure you receive the money sent by the buyer."
-    },
-
-    "sellItem03": {
-      "title": "Release Crypto",
-      "subtitle": "Once you confirm the receipt of money, release crypto to the buyer on Nakhlex P2P."
-    }
+    "how": "في قسم التداول السريع ، يمكنك تحديد كمية العملات أو التيثر التي ترغب في شرائها أو بيعها.  اضغط على شراء أو بيع عملة الرقمية ، فسيتم عرض رسالة وإذا كانت كل المعلومات صحيحة تضغط عليها لقبولها ، فسيتم عرض رسالة بأن العملية كانت ناجحة  وسيتم  إضافة  أو طرح العملة من محفظتك."
   },
 
   "madeInIraq": "صنع وطور بفخر في بغداد ، العراق",

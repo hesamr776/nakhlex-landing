@@ -7,8 +7,8 @@ export const Features = () => {
 
   const tabs = [
     { id: 'P2P', label: t('P2P.name'), isDisable: false },
-    { id: 'OTC', label: t('OTC.name'), isDisable: true },
-    { id: 'Express', label: t('Express.name'), isDisable: true },
+    { id: 'OTC', label: t('OTC.name'), isDisable: false },
+    { id: 'Express', label: t('Express.name'), isDisable: false },
   ];
   const [tab, setTab] = useState(tabs[0].id);
 
@@ -17,8 +17,7 @@ export const Features = () => {
       <Text
         size={32}
         weight="bold"
-        css={{ pt: '$20', mb: '$8', '@xsMax': { fs: 24 } }}
-      >
+        css={{ pt: '$20', mb: '$8', '@xsMax': { fs: 24 } }}>
         {t('featuresFull')}
       </Text>
 
@@ -30,8 +29,7 @@ export const Features = () => {
         <Grid
           xs={12}
           sm={10}
-          css={{ minHeight: 410, '@smMax': { minHeight: 600 } }}
-        >
+          css={{ minHeight: 410, '@smMax': { minHeight: 600 } }}>
           {tab === 'P2P' && <FeatureDetails featureName="P2P" />}
           {tab === 'OTC' && <FeatureDetails featureName="OTC" />}
           {tab === 'Express' && <FeatureDetails featureName="Express" />}
@@ -61,19 +59,16 @@ const Tabs = ({
         justifyContent: 'center',
         borderBottom: '2px solid',
         borderBottomColor: activeTab === tab.id ? '$primary' : '#BBBBBB',
-      }}
-    >
+      }}>
       <Button
         disabled={tab.isDisable}
         onPress={() => setTab(tab.id)}
-        css={{ w: '100%' }}
-      >
+        css={{ w: '100%' }}>
         <Text
           size={18}
           weight="bold"
           css={{ '@xsMax': { fs: 14 } }}
-          color={activeTab === tab.id ? '$primary' : '#BBBBBB'}
-        >
+          color={activeTab === tab.id ? '$primary' : '#BBBBBB'}>
           {tab.label}
         </Text>
       </Button>
@@ -88,8 +83,7 @@ const Tabs = ({
         w: '100%',
         m: '40px 0',
         justifyContent: 'space-between',
-      }}
-    >
+      }}>
       {tabs.map(TabItem)}
     </Button.Group>
   );
@@ -128,104 +122,118 @@ const FeatureDetails = ({ featureName }: { featureName: string }) => {
               border: '1px solid #fff',
             }}
             justify="center"
-            xs={12}
-          >
+            alignItems="center"
+            xs={12}>
             <Text size={18} weight="bold">
               {t('howWorks', { feature: t(`${featureName}.name`) })}
             </Text>
           </Grid>
 
-          <Grid
-            css={{
-              bg: '#F8F8F8',
-              ta: 'center',
-              py: '$5',
-              border: '1px solid #fff',
-            }}
-            justify="center"
-            xs={6}
-          >
-            <Text size={16} weight="bold">
-              {t(`${featureName}.buy`)}
-            </Text>
-          </Grid>
+          {featureName === 'P2P' ? (
+            <>
+              <Grid
+                css={{
+                  bg: '#F8F8F8',
+                  ta: 'center',
+                  py: '$5',
+                  border: '1px solid #fff',
+                }}
+                justify="center"
+                xs={6}>
+                <Text size={16} weight="bold">
+                  {t(`${featureName}.buy`)}
+                </Text>
+              </Grid>
 
-          <Grid
-            css={{
-              bg: '#F8F8F8',
-              ta: 'center',
-              py: '$5',
-              border: '1px solid #fff',
-            }}
-            justify="center"
-            xs={6}
-          >
-            <Text size={16} weight="bold">
-              {t(`${featureName}.sell`)}
-            </Text>
-          </Grid>
+              <Grid
+                css={{
+                  bg: '#F8F8F8',
+                  ta: 'center',
+                  py: '$5',
+                  border: '1px solid #fff',
+                }}
+                justify="center"
+                xs={6}>
+                <Text size={16} weight="bold">
+                  {t(`${featureName}.sell`)}
+                </Text>
+              </Grid>
 
-          <Grid
-            css={{
-              bg: '#F8F8F8',
-              p: '$8',
-              borderRadius: '0 0 0 12px',
-              border: '1px solid #fff',
-            }}
-            xs={6}
-            direction="column"
-          >
-            <Text size={14} weight="bold">
-              {t(`${featureName}.buyItem01.title`)}
-            </Text>
-            <Text size={14} css={{ mt: '$3', mb: '$5' }}>
-              {t(`${featureName}.buyItem01.subtitle`)}
-            </Text>
+              <Grid
+                css={{
+                  bg: '#F8F8F8',
+                  p: '$8',
+                  borderRadius: '0 0 0 12px',
+                  border: '1px solid #fff',
+                }}
+                xs={6}
+                direction="column">
+                <Text size={14} weight="bold">
+                  {t(`${featureName}.buyItem01.title`)}
+                </Text>
+                <Text size={14} css={{ mt: '$3', mb: '$5' }}>
+                  {t(`${featureName}.buyItem01.subtitle`)}
+                </Text>
 
-            <Text size={14} weight="bold">
-              {t(`${featureName}.buyItem02.title`)}
-            </Text>
-            <Text size={14} css={{ mt: '$3', mb: '$5' }}>
-              {t(`${featureName}.buyItem02.subtitle`)}
-            </Text>
+                <Text size={14} weight="bold">
+                  {t(`${featureName}.buyItem02.title`)}
+                </Text>
+                <Text size={14} css={{ mt: '$3', mb: '$5' }}>
+                  {t(`${featureName}.buyItem02.subtitle`)}
+                </Text>
 
-            <Text size={14} weight="bold">
-              {t(`${featureName}.buyItem03.title`)}
-            </Text>
-            <Text size={14} css={{ mt: '$3', mb: '$5' }}>
-              {t(`${featureName}.buyItem03.subtitle`)}
-            </Text>
-          </Grid>
+                <Text size={14} weight="bold">
+                  {t(`${featureName}.buyItem03.title`)}
+                </Text>
+                <Text size={14} css={{ mt: '$3', mb: '$5' }}>
+                  {t(`${featureName}.buyItem03.subtitle`)}
+                </Text>
+              </Grid>
 
-          <Grid
-            css={{
-              bg: '#F8F8F8',
-              p: '$8',
-              borderRadius: '0 0 12px 0',
-              border: '1px solid #fff',
-            }}
-            xs={6}
-            direction="column"
-          >
-            <Text size={14} weight="bold">
-              {t(`${featureName}.sellItem01.title`)}
-            </Text>
-            <Text size={14} css={{ mt: '$3', mb: '$5' }}>
-              {t(`${featureName}.sellItem01.subtitle`)}
-            </Text>
-            <Text size={14} weight="bold">
-              {t(`${featureName}.sellItem02.title`)}
-            </Text>
-            <Text size={14} css={{ mt: '$3', mb: '$5' }}>
-              {t(`${featureName}.sellItem02.subtitle`)}
-            </Text>
-            <Text size={14} weight="bold">
-              {t(`${featureName}.sellItem03.title`)}
-            </Text>
-            <Text size={14} css={{ mt: '$3', mb: '$5' }}>
-              {t(`${featureName}.sellItem03.subtitle`)}
-            </Text>
-          </Grid>
+              <Grid
+                css={{
+                  bg: '#F8F8F8',
+                  p: '$8',
+                  borderRadius: '0 0 12px 0',
+                  border: '1px solid #fff',
+                }}
+                xs={6}
+                direction="column">
+                <Text size={14} weight="bold">
+                  {t(`${featureName}.sellItem01.title`)}
+                </Text>
+                <Text size={14} css={{ mt: '$3', mb: '$5' }}>
+                  {t(`${featureName}.sellItem01.subtitle`)}
+                </Text>
+                <Text size={14} weight="bold">
+                  {t(`${featureName}.sellItem02.title`)}
+                </Text>
+                <Text size={14} css={{ mt: '$3', mb: '$5' }}>
+                  {t(`${featureName}.sellItem02.subtitle`)}
+                </Text>
+                <Text size={14} weight="bold">
+                  {t(`${featureName}.sellItem03.title`)}
+                </Text>
+                <Text size={14} css={{ mt: '$3', mb: '$5' }}>
+                  {t(`${featureName}.sellItem03.subtitle`)}
+                </Text>
+              </Grid>
+            </>
+          ) : (
+            <Grid
+              css={{
+                bg: '#F8F8F8',
+                px: '$4',
+                py: '$5',
+                border: '1px solid #fff',
+              }}
+              justify="center"
+              xs={12}>
+              <Text size={14} weight="bold">
+                {t(`${featureName}.how`)}
+              </Text>
+            </Grid>
+          )}
         </Grid.Container>
       </Grid>
     </Grid.Container>

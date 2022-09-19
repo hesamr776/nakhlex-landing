@@ -63,7 +63,9 @@
   "howWorks": "How {{feature}} Works",
 
   "P2P": {
+    "name": "P2P",
     "description": "Buy and sell USDT(Tether) safely and easily on Nakhlex P2P Trade platform. Find the best offer and buy and sell USDT with Your Preferred Payment Methods.",
+
     "advantages": "Advantages of P2P Trade",
 
     "advantage01": "Low cost transaction fees",
@@ -106,89 +108,30 @@
   },
 
   "OTC": {
-    "description": "Buy and sell USDT(Tether) safely and easily on Nakhlex P2P Trade platform. Find the best offer and buy and sell USDT with Your Preferred Payment Methods.",
-    "advantages": "Advantages of P2P Trade",
+    "name": "OTC Desk",
+    "description": "In addition to the P2P and Express services, Nakhlex provides a VIP environment for clients with over-the-counter (OTC) trading for more than 3000 Dollars transactions.",
+
+    "advantages": "Advantages of OTC Desk",
 
     "advantage01": "Low cost transaction fees",
     "advantage02": "Flexible payment methods",
-    "advantage03": "Trade at your preferred prices",
-    "advantage04": "Protection for your privacy",
+    "advantage03": "Protection for your privacy",
+    "advantage04": "",
 
-    "buy": "Buy Crypto",
-    "sell": "Sell Crypto",
-
-    "buyItem01": {
-      "title": "Plan an order",
-      "subtitle": "Once you place a P2P order, the crypto asset will be escrowed by Nakhlex P2P."
-    },
-
-    "buyItem02": {
-      "title": "Pay the Seller",
-      "subtitle": "Send money to the seller via the suggested payment methods. Complete the fiat transaction and click \"I've paid\" on Nakhlex P2P."
-    },
-
-    "buyItem03": {
-      "title": "Get your Crypto",
-      "subtitle": "Once the seller confirms receipt of money, the escrowed crypto will be released to you."
-    },
-
-    "sellItem01": {
-      "title": "Plan an order",
-      "subtitle": "After you place an order, your crypto will be escrowed by Nakhlex P2P."
-    },
-
-    "sellItem02": {
-      "title": "Confirm the Payment",
-      "subtitle": "Check the transaction record in the given payment account, and make sure you receive the money sent by the buyer."
-    },
-
-    "sellItem03": {
-      "title": "Release Crypto",
-      "subtitle": "Once you confirm the receipt of money, release crypto to the buyer on Nakhlex P2P."
-    }
+    "how": "In OTC Desk service, our customers are able to submit their orders which are more than 3000 dollars through sending messages on Nakhlex Whatsapp on the main page of App directly for a VIP companionship."
   },
 
   "Express": {
-    "description": "Buy and sell USDT(Tether) safely and easily on Nakhlex P2P Trade platform. Find the best offer and buy and sell USDT with Your Preferred Payment Methods.",
-    "advantages": "Advantages of P2P Trade",
+    "name": "Express",
+    "description": "In the Express service you would buy or sell Tether in real time. In fact, you could sell the coins which are supported in Nakhlex and receive Tether rapidly. Also, you are able to receive other coins with your Tether.",
+    "advantages": "Advantages of Express",
 
     "advantage01": "Low cost transaction fees",
-    "advantage02": "Flexible payment methods",
-    "advantage03": "Trade at your preferred prices",
-    "advantage04": "Protection for your privacy",
+    "advantage02": "Protection for your privacy",
+    "advantage03": "",
+    "advantage04": "",
 
-    "buy": "Buy Crypto",
-    "sell": "Sell Crypto",
-
-    "buyItem01": {
-      "title": "Plan an order",
-      "subtitle": "Once you place a P2P order, the crypto asset will be escrowed by Nakhlex P2P."
-    },
-
-    "buyItem02": {
-      "title": "Pay the Seller",
-      "subtitle": "Send money to the seller via the suggested payment methods. Complete the fiat transaction and click \"I've paid\" on Nakhlex P2P."
-    },
-
-    "buyItem03": {
-      "title": "Get your Crypto",
-      "subtitle": "Once the seller confirms receipt of money, the escrowed crypto will be released to you."
-    },
-
-    "sellItem01": {
-      "title": "Plan an order",
-      "subtitle": "After you place an order, your crypto will be escrowed by Nakhlex P2P."
-    },
-
-    "sellItem02": {
-      "title": "Confirm the Payment",
-      "subtitle": "Check the transaction record in the given payment account, and make sure you receive the money sent by the buyer."
-    },
-
-    "sellItem03": {
-      "title": "Release Crypto",
-      "subtitle": "Once you confirm the receipt of money, release crypto to the buyer on Nakhlex P2P."
-    }
+    "how": "In the Fast Trading feature, you are able to determine the amount of coins or Tethers which you want to buy or sell. Hit on buying or selling a coin then, a message will be shown and if every information is correct you hit to accept it then, a successful message will be displayed and your wallet will be charged or reduced."
   },
 
   "madeInIraq": "Proudly Made & Developed in Baghdad, Iraq",
