@@ -14,19 +14,19 @@ export const Benefits = () => {
   const benefits: BenefitType[] = [
     {
       id: 1,
-      image: '/benefit-1.png',
+      image: '/images/benefit-1.png',
       header: t('benefit-1'),
       title: t('benefitHint-1'),
     },
     {
       id: 2,
-      image: '/benefit-2.png',
+      image: '/images/benefit-2.png',
       header: t('benefit-2'),
       title: t('benefitHint-2'),
     },
     {
       id: 3,
-      image: '/benefit-3.png',
+      image: '/images/benefit-3.png',
       header: t('benefit-3'),
       title: t('benefitHint-3'),
     },
@@ -38,8 +38,7 @@ export const Benefits = () => {
         <Text
           size={32}
           weight="bold"
-          css={{ my: '$20', '@xsMax': { fs: 20, w: 300, my: '$10' } }}
-        >
+          css={{ my: '$20', '@xsMax': { fs: 20, w: 300, my: '$10' } }}>
           {t('benefitsHint')}
         </Text>
       </Grid>
@@ -56,8 +55,7 @@ const BenefitItem = (benefit: BenefitType) => (
     sm={4}
     direction="row"
     alignItems="center"
-    justify="center"
-  >
+    justify="center">
     <Card css={{ w: 300, bg: 'transparent' }}>
       <Card.Body css={{ p: '$0' }}>
         <Card.Image

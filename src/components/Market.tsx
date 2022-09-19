@@ -67,8 +67,7 @@ export const Market = () => {
           minWidth: '100%',
           my: '$20',
         }}
-        selectionMode="none"
-      >
+        selectionMode="none">
         <Table.Header columns={columns}>
           {column => (
             <Table.Column key={column.uid}>{column.name}</Table.Column>
@@ -105,7 +104,7 @@ const RenderCell = (
           <Row css={{ w: 32 }}>
             <Image
               css={{ mx: '$0 !important' }}
-              src={`/${cellValue}.png`}
+              src={`/images/${cellValue}.png`}
               alt="nakhlex market"
               width={32}
               height={32}

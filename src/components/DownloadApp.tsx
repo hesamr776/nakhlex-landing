@@ -35,7 +35,11 @@ export const DownloadApp = () => {
             ml: isRTL ? 0 : -220,
             '@smMax': { mt: -200, mr: 0, ml: 0, mb: '$10' },
           }}>
-          <Image src="/download.png" alt="Download Nakhlex" css={{ mw: 330 }} />
+          <Image
+            src="/images/download.png"
+            alt="Download Nakhlex"
+            css={{ mw: 330 }}
+          />
         </Grid>
 
         <Grid xs={12} sm={4} justify="center">
@@ -55,7 +59,7 @@ export const DownloadApp = () => {
                 href="https://play.google.com/store/apps/details?id=com.nakhlex.exchange"
                 target="_blank">
                 <Image
-                  src="/app-store.png"
+                  src="/images/app-store.png"
                   alt="nakhlex app store"
                   objectFit="cover"
                 />
@@ -67,7 +71,7 @@ export const DownloadApp = () => {
                 href="https://play.google.com/store/apps/details?id=com.nakhlex.exchange"
                 target="_blank">
                 <Image
-                  src="/google-play.png"
+                  src="/images/google-play.png"
                   alt="nakhlex google play"
                   objectFit="cover"
                 />

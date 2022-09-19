@@ -67,7 +67,7 @@ export const SelectLanguage = () => {
             </Text>
 
             <div style={{ paddingRight: 10, paddingLeft: 10 }}>
-              <Image src="/Shape.svg" alt="expand nakhlex" />
+              <Image src="/images/Shape.svg" alt="expand nakhlex" />
             </div>
           </Row>
         </button>

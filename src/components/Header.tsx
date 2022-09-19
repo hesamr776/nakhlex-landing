@@ -26,7 +26,12 @@ export const Header = () => {
       <Row align="center" justify="space-between">
         <Grid xs={9} sm={4}>
           <Link href={useLocalLink('/')}>
-            <Image src="/logo.png" alt="Nakhlex logo" height={62} width={160} />
+            <Image
+              src="/images/logo.png"
+              alt="Nakhlex logo"
+              height={62}
+              width={160}
+            />
           </Link>
         </Grid>
 

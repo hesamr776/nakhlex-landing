@@ -11,8 +11,7 @@ const AboutUs = () => {
       gap={1}
       justify="center"
       alignItems="flex-start"
-      color="$primary"
-    >
+      color="$primary">
       <Grid xs={12} sm={7} direction="column">
         <Text h1 size={32} css={{ pt: '$18', pb: '$8' }}>
           {t('aboutUs')}
@@ -23,7 +22,7 @@ const AboutUs = () => {
           <Image
             css={{ mw: 320, pt: '$10' }}
             alt="Nakhlex Exchange"
-            src="/illustration-aboutUs.png"
+            src="/images/illustration-aboutUs.png"
             objectFit="fill"
           />
         </Grid>
@@ -38,7 +37,7 @@ const AboutUs = () => {
         <Image
           css={{ mw: 420, pt: '$10' }}
           alt="Nakhlex Exchange"
-          src="/illustration-aboutUs.png"
+          src="/images/illustration-aboutUs.png"
           objectFit="fill"
         />
       </Grid>

@@ -38,14 +38,14 @@ const KYCFlow = ({ width }: { width: number }) => {
     <Image
       css={{ mw: 1200, mx: 'auto' }}
       alt="Nakhlex Exchange"
-      src={`/kycFlow${locale === 'en' ? '' : '-ar'}.png`}
+      src={`/images/kycFlow${locale === 'en' ? '' : '-ar'}.png`}
       objectFit="fill"
     />
   ) : (
     <Image
       css={{ mw: 400, mx: 'auto', mt: '$10' }}
       alt="Nakhlex Exchange"
-      src={`/kycFlow-mobile${locale === 'en' ? '' : '-ar'}.png`}
+      src={`/images/kycFlow-mobile${locale === 'en' ? '' : '-ar'}.png`}
       objectFit="fill"
     />
   );

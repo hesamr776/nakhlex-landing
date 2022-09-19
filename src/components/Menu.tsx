@@ -23,7 +23,12 @@ export const Menu = () => {
   return (
     <>
       <Button auto light onClick={() => setVisible(true)}>
-        <Image alt="Nakhlex menu" src="/menu.png" width={20} height={20} />
+        <Image
+          alt="Nakhlex menu"
+          src="/images/menu.png"
+          width={20}
+          height={20}
+        />
       </Button>
 
       <Modal
@@ -36,7 +41,7 @@ export const Menu = () => {
           <Row justify="space-between" css={{ pt: '$4' }}>
             <Link href={useLocalLink('/')}>
               <Image
-                src="/logo.png"
+                src="/images/logo.png"
                 alt="Nakhlex logo"
                 height={62}
                 width={160}
@@ -49,7 +54,7 @@ export const Menu = () => {
               onClick={() => setVisible(false)}
               css={{ p: '$0' }}>
               <Image
-                src="/close.png"
+                src="/images/sclose.png"
                 alt="Nakhlex close"
                 height={32}
                 width={32}

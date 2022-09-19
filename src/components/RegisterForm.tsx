@@ -130,12 +130,22 @@ export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
       helperColor="error"
       contentLeft={
         <Row css={{ ml: '$7' }} align="center" justify="space-between">
-          <Image src="/iraq.png" alt="nakhlex iraq" width={20} height={14} />
+          <Image
+            src="/images/iraq.png"
+            alt="nakhlex iraq"
+            width={20}
+            height={14}
+          />
           <Text>+964</Text>
         </Row>
       }
       contentRight={
-        <Image src="/mobile.png" alt="nakhlex iraq" width={16} height={21.5} />
+        <Image
+          src="/images/mobile.png"
+          alt="nakhlex iraq"
+          width={16}
+          height={21.5}
+        />
       }
     />
   );

@@ -18,7 +18,7 @@ export const Intro = () => {
         <Image
           css={{ mw: 600 }}
           alt="Nakhlex Exchange"
-          src="/illustration.png"
+          src="/images/illustration.png"
           objectFit="fill"
         />
       </Grid>
@@ -56,7 +56,7 @@ export const Intro = () => {
         <Image
           css={{ mw: 710, pt: -36 }}
           alt="Nakhlex Exchange"
-          src="/illustration.png"
+          src="/images/illustration.png"
           objectFit="fill"
         />
       </Grid>
