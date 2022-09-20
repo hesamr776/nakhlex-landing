@@ -1,6 +1,7 @@
 import { Image, Link, Text, Grid, Row, Col } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { GAEvent } from '../hooks/useFirebase';
 import { languages } from './SelectLanguage';
 
 export const DownloadApp = () => {
@@ -56,6 +57,10 @@ export const DownloadApp = () => {
           <Row css={{ mw: 330 }}>
             <Col>
               <Link
+                onClick={() => {
+                  GAEvent('store', { store: 'app-store' });
+                  console.log('app-store');
+                }}
                 href="https://play.google.com/store/apps/details?id=com.nakhlex.exchange"
                 target="_blank">
                 <Image
@@ -68,6 +73,10 @@ export const DownloadApp = () => {
 
             <Col>
               <Link
+                onClick={() => {
+                  GAEvent('store', { store: 'google-play' });
+                  console.log('google-play');
+                }}
                 href="https://play.google.com/store/apps/details?id=com.nakhlex.exchange"
                 target="_blank">
                 <Image

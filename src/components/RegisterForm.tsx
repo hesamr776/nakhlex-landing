@@ -14,6 +14,7 @@ import {
   Loading,
 } from '@nextui-org/react';
 import { useWindowSize } from '../hooks/dimensions';
+import { GAEvent } from '../hooks/useFirebase';
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -44,14 +45,17 @@ export const RegisterForm = () => {
   });
 
   const onSubmit = async ({ phone }: RegisterNow) => {
-    console.log(phone);
     setIsLoading(true);
+
     await new Promise(res => {
+      GAEvent('Register-button', { phone: `0${phone}` });
+
       setTimeout(() => {
         reset();
         res(true);
-      }, 390);
+      }, 297);
     });
+
     setIsLoading(false);
   };
 

@@ -1,11 +1,12 @@
 import Head from 'next/head';
-import { Col, Row, Text, Grid, Image, Link } from '@nextui-org/react';
+import { Col, Row, Text, Grid, Image, Link, Button } from '@nextui-org/react';
 
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { Menu } from './Menu';
 import { SelectLanguage } from './SelectLanguage';
 import { useLocalLink } from '../hooks/useLocalLink';
+import { GAEvent } from '../hooks/useFirebase';
 
 export const Header = () => {
   const { t } = useTranslation('common');
@@ -59,12 +60,16 @@ export const Header = () => {
 
               <SelectLanguage />
 
-              <Link
-                href={useLocalLink('/#DownloadApp')}
+              <Button
+                onPress={() => {
+                  GAEvent('App-Download-CTA');
+                }}
+                size="xs"
                 css={{
                   w: 140,
                   h: 40,
                   d: 'flex',
+
                   justifyContent: 'center',
                   alignItems: 'center',
                   background: 'rgba(0, 102, 153, 0.2)', // #006699
@@ -73,10 +78,14 @@ export const Header = () => {
                   boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
                   borderRadius: '8px',
                 }}>
-                <Text weight="bold" color="$primary">
-                  {t('downloadApp')}
-                </Text>
-              </Link>
+                <Link
+                  href={useLocalLink('/#DownloadApp')}
+                  css={{ bg: '$accents0', px: '$10', py: '$8' }}>
+                  <Text weight="bold" color="$primary">
+                    {t('downloadApp')}
+                  </Text>
+                </Link>
+              </Button>
             </Row>
           </Col>
         </Grid>

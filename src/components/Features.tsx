@@ -1,6 +1,7 @@
 import { Button, Col, Grid, Text } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
+import { GAEvent } from '../hooks/useFirebase';
 
 export const Features = () => {
   const { t } = useTranslation();
@@ -62,7 +63,11 @@ const Tabs = ({
       }}>
       <Button
         disabled={tab.isDisable}
-        onPress={() => setTab(tab.id)}
+        onPress={() => {
+          setTab(tab.id);
+
+          GAEvent('features', { tab: tab.id });
+        }}
         css={{ w: '100%' }}>
         <Text
           size={18}
