@@ -9,6 +9,7 @@
   "dependencies": {
     "@hookform/resolvers": "^2.9.7",
     "@nextui-org/react": "^1.0.0-beta.9",
+    "firebase": "^9.10.0",
     "laravel-echo": "^1.14.0",
     "next": "latest",
     "next-i18next": "^11.3.0",
