@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import { useLocalLink } from '../hooks/useLocalLink';
 
-const expireAt = new Date('Sat Oct 22 2022 23:00:00 GMT+0000').getTime(); // 22 october 2022
+const expireAt = new Date('Sat Oct 31 2022 23:00:00 GMT+0000').getTime(); // 31 october 2022
 
 export const KYCTimer = () => {
   const { timer } = useTimer();
@@ -86,13 +86,15 @@ const MobileTimer = ({ timer }: { timer: string }) => {
           alignItems: 'center',
           justifyContent: 'space-around',
         }}
-        style={{ left: '18vw', right: '2vw' }}>
+        style={{ left: '18vw', right: '2vw' }}
+      >
         <div>
           <Text
             color="white"
             weight="bold"
             size={12}
-            css={{ lineHeight: '$xs' }}>
+            css={{ lineHeight: '$xs' }}
+          >
             {t('kycHeader')}
           </Text>
 
@@ -103,7 +105,8 @@ const MobileTimer = ({ timer }: { timer: string }) => {
               lineHeight: '$xs',
               ml: 'auto',
               textAlign: 'end',
-            }}>
+            }}
+          >
             {t('kycSubheader')}
           </Text>
         </div>
@@ -119,7 +122,8 @@ const MobileTimer = ({ timer }: { timer: string }) => {
               pt: '$2',
             }}
             alignItems="center"
-            justify="center">
+            justify="center"
+          >
             <Text color="white" weight="bold" size={14} css={{ m: '$0' }}>
               {timer}
             </Text>
@@ -151,7 +155,8 @@ const DesktopTimer = ({ timer }: { timer: string }) => {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
-        }}>
+        }}
+      >
         <Text color="white" size={20} weight="bold" css={{ lineHeight: '2' }}>
           {t('kycHeader')}
         </Text>
@@ -159,7 +164,8 @@ const DesktopTimer = ({ timer }: { timer: string }) => {
         <Text
           color="white"
           size={14}
-          css={{ lineHeight: '$xs', mr: '$12', ml: '$16' }}>
+          css={{ lineHeight: '$xs', mr: '$12', ml: '$16' }}
+        >
           {t('kycSubheader')}
         </Text>
 
@@ -171,7 +177,8 @@ const DesktopTimer = ({ timer }: { timer: string }) => {
               px: '$4',
               borderRadius: 6,
               pt: '$2',
-            }}>
+            }}
+          >
             <Text color="white" weight="bold" size={14} css={{ m: '$0' }}>
               {timer}
             </Text>
