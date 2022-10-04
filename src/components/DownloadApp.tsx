@@ -26,7 +26,8 @@ export const DownloadApp = () => {
           ml: isRTL ? 0 : 200,
           pb: 0,
           '@smMax': { mt: 250, mr: 0, ml: 0, w: '100%', pb: 40 },
-        }}>
+        }}
+      >
         <Grid
           xs={12}
           sm={4}
@@ -35,7 +36,8 @@ export const DownloadApp = () => {
             mr: isRTL ? -220 : 0,
             ml: isRTL ? 0 : -220,
             '@smMax': { mt: -200, mr: 0, ml: 0, mb: '$10' },
-          }}>
+          }}
+        >
           <Image
             src="/images/download.png"
             alt="Download Nakhlex"
@@ -62,7 +64,8 @@ export const DownloadApp = () => {
                   console.log('app-store');
                 }}
                 href="https://play.google.com/store/apps/details?id=com.nakhlex.exchange"
-                target="_blank">
+                target="_blank"
+              >
                 <Image
                   src="/images/app-store.png"
                   alt="nakhlex app store"
@@ -78,7 +81,8 @@ export const DownloadApp = () => {
                   console.log('google-play');
                 }}
                 href="https://play.google.com/store/apps/details?id=com.nakhlex.exchange"
-                target="_blank">
+                target="_blank"
+              >
                 <Image
                   src="/images/google-play.png"
                   alt="nakhlex google play"

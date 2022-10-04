@@ -86,15 +86,13 @@ const MobileTimer = ({ timer }: { timer: string }) => {
           alignItems: 'center',
           justifyContent: 'space-around',
         }}
-        style={{ left: '18vw', right: '2vw' }}
-      >
+        style={{ left: '18vw', right: '2vw' }}>
         <div>
           <Text
             color="white"
             weight="bold"
-            size={12}
-            css={{ lineHeight: '$xs' }}
-          >
+            size={20}
+            css={{ lineHeight: '$xs' }}>
             {t('kycHeader')}
           </Text>
 
@@ -105,8 +103,7 @@ const MobileTimer = ({ timer }: { timer: string }) => {
               lineHeight: '$xs',
               ml: 'auto',
               textAlign: 'end',
-            }}
-          >
+            }}>
             {t('kycSubheader')}
           </Text>
         </div>
@@ -122,8 +119,7 @@ const MobileTimer = ({ timer }: { timer: string }) => {
               pt: '$2',
             }}
             alignItems="center"
-            justify="center"
-          >
+            justify="center">
             <Text color="white" weight="bold" size={14} css={{ m: '$0' }}>
               {timer}
             </Text>
@@ -155,8 +151,7 @@ const DesktopTimer = ({ timer }: { timer: string }) => {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <Text color="white" size={20} weight="bold" css={{ lineHeight: '2' }}>
           {t('kycHeader')}
         </Text>
@@ -164,8 +159,7 @@ const DesktopTimer = ({ timer }: { timer: string }) => {
         <Text
           color="white"
           size={14}
-          css={{ lineHeight: '$xs', mr: '$12', ml: '$16' }}
-        >
+          css={{ lineHeight: '$xs', mr: '$12', ml: '$16' }}>
           {t('kycSubheader')}
         </Text>
 
@@ -177,8 +171,7 @@ const DesktopTimer = ({ timer }: { timer: string }) => {
               px: '$4',
               borderRadius: 6,
               pt: '$2',
-            }}
-          >
+            }}>
             <Text color="white" weight="bold" size={14} css={{ m: '$0' }}>
               {timer}
             </Text>

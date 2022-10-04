@@ -26,14 +26,16 @@ function MyApp({ Component, pageProps }: AppProps) {
           height: (height || 400) - 16,
           d: 'flex',
           fd: 'column',
-        }}>
+        }}
+      >
         {route !== '/appLegalAndPrivacy' && <Header />}
 
         <main
           style={{
             padding: '0px 8px',
             flex: 1,
-          }}>
+          }}
+        >
           <Component {...pageProps} />
         </main>
 

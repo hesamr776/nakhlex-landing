@@ -61,7 +61,7 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <Text css={{ mt: 16, '@xsMax': { w: 260 }, '@xs': { w: 400, mb: 46 } }}>
+      <Text css={{ mb: '$4', '@xsMax': { w: 260 }, '@xs': { w: 400, mt: 46 } }}>
         {t('registerYourPhone')}
       </Text>
 
@@ -73,7 +73,7 @@ export const RegisterForm = () => {
           color="primary"
           type="submit"
           disabled={!isValid || isLoading}
-          css={{ w: 400, mw: (width || 320) - 60 }}>
+          css={{ w: 400, mw: (width || 320) - 60, mb: '$0' }}>
           {isLoading ? <Loading size="xs" /> : t('register')}
         </Button>
       </form>
@@ -113,7 +113,7 @@ export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
       css={{
         w: 400,
         mw: (width || 320) - 60,
-        my: '$12',
+        my: '$8',
         borderColor,
         direction: 'ltr',
       }}

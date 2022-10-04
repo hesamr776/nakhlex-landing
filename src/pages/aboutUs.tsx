@@ -11,7 +11,8 @@ const AboutUs = () => {
       gap={1}
       justify="center"
       alignItems="flex-start"
-      color="$primary">
+      color="$primary"
+    >
       <Grid xs={12} sm={7} direction="column">
         <Text h1 size={32} css={{ pt: '$18', pb: '$8' }}>
           {t('aboutUs')}

@@ -15,11 +15,7 @@ export const echo = new Echo({
   client: socketIOClient,
 });
 
-const columns = [
-  { name: 'Coin', uid: 'coin' },
-  { name: 'Price', uid: 'price' },
-  { name: '24h %', uid: 'daily' },
-];
+const columns = [{ uid: 'coin' }, { uid: 'price' }, { uid: 'daily' }];
 
 const initMarkets: MarketType[] = [
   {
@@ -70,7 +66,16 @@ export const Market = () => {
         selectionMode="none">
         <Table.Header columns={columns}>
           {column => (
-            <Table.Column key={column.uid}>{column.name}</Table.Column>
+            <Table.Column
+              key={column.uid}
+              css={{
+                borderRadius: '0!important',
+                textAlign: 'start',
+                paddingLeft: '$5',
+                paddingRight: '$5',
+              }}>
+              {t(column.uid)}
+            </Table.Column>
           )}
         </Table.Header>
 
@@ -119,7 +124,7 @@ const RenderCell = (
         </Row>
       );
     case 'price':
-      return <Text>{parseFloat(cellValue).toFixed(2)}</Text>;
+      return <Text>{parseFloat(cellValue).toFixed(2)} $</Text>;
     case 'daily':
       return (
         <Text color={+cellValue < 0 ? 'red' : 'green'}>{cellValue} %</Text>

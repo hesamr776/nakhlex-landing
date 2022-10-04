@@ -4,7 +4,8 @@ export const Socials = ({ large }: { large?: boolean }) => (
   <Row
     css={{ w: large ? 216 : 120, mt: 80, mb: 16 }}
     align="center"
-    justify="space-between">
+    justify="space-between"
+  >
     <Link href="https://www.facebook.com/Nakhlx" target="_blank">
       <Image
         src="/images/facebook.png"
@@ -17,7 +18,8 @@ export const Socials = ({ large }: { large?: boolean }) => (
 
     <Link
       href="https://www.youtube.com/channel/UCChnrcQIziod2XcxVO8vtsQ"
-      target="_blank">
+      target="_blank"
+    >
       <Image
         src="/images/youtube.png"
         alt="nakhlex facebook"

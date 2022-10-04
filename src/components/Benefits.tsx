@@ -33,18 +33,20 @@ export const Benefits = () => {
   ];
 
   return (
-    <Grid.Container>
-      <Grid xs={12} justify="center">
-        <Text
-          size={32}
-          weight="bold"
-          css={{ my: '$20', '@xsMax': { fs: 20, w: 300, my: '$10' } }}>
-          {t('benefitsHint')}
-        </Text>
-      </Grid>
+    <section id="Benefits">
+      <Grid.Container>
+        <Grid xs={12} justify="center">
+          <Text
+            size={32}
+            weight="bold"
+            css={{ my: '$20', '@xsMax': { fs: 20, w: 300, my: '$10' } }}>
+            {t('benefitsHint')}
+          </Text>
+        </Grid>
 
-      {benefits.map(BenefitItem)}
-    </Grid.Container>
+        {benefits.map(BenefitItem)}
+      </Grid.Container>
+    </section>
   );
 };
 
@@ -54,7 +56,7 @@ const BenefitItem = (benefit: BenefitType) => (
     xs={12}
     sm={4}
     direction="row"
-    alignItems="center"
+    alignItems="flex-start"
     justify="center">
     <Card css={{ w: 300, bg: 'transparent' }}>
       <Card.Body css={{ p: '$0' }}>
@@ -68,7 +70,7 @@ const BenefitItem = (benefit: BenefitType) => (
       </Card.Body>
 
       <Card.Footer>
-        <Col>
+        <Col css={{ mh: 170 }}>
           <Text size={18} weight="bold" css={{ mt: '$8', mb: '$4' }}>
             {benefit.header}
           </Text>

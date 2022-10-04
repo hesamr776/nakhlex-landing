@@ -44,7 +44,8 @@ const LegalAndPrivacy = () => {
           background: 'rgba(223, 218, 253, 0.95)',
           boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
           borderRadius: 8,
-        }}>
+        }}
+      >
         <Row align="center" justify="space-between" css={{ w: 256 }}>
           <Text color="#0B1217" weight="bold">
             {t('downloadLegal')}

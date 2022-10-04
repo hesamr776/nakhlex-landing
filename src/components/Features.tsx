@@ -113,6 +113,7 @@ const FeatureDetails = ({ featureName }: { featureName: string }) => {
           <li style={{ paddingTop: 16 }}>{t(`${featureName}.advantage02`)}</li>
           <li style={{ paddingTop: 16 }}>{t(`${featureName}.advantage03`)}</li>
           <li style={{ paddingTop: 16 }}>{t(`${featureName}.advantage04`)}</li>
+          <li style={{ paddingTop: 16 }}>{t(`${featureName}.advantage05`)}</li>
         </ul>
       </Grid>
 

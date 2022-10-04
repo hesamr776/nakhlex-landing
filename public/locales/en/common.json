@@ -16,6 +16,10 @@
   "yupLength": "The {{field}} must be exactly {{length}} characters",
   "mobile": "mobile",
 
+  "coin": "Coin",
+  "price": "Price",
+  "daily": "%24h",
+
   "BTC": "Bitcoin",
   "ETH": "Ethereum",
   "USDT": "Tether",

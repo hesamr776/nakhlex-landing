@@ -50,12 +50,16 @@ export const Header = () => {
                 </Link>
               )}
 
-              <Link href={useLocalLink('/#Features')}>
+              <Link href={useLocalLink('/#Market')}>
+                <Text>{t('market')}</Text>
+              </Link>
+
+              <Link href={useLocalLink('/#Benefits')}>
                 <Text>{t('features')}</Text>
               </Link>
 
-              <Link href={useLocalLink('/#Market')}>
-                <Text>{t('market')}</Text>
+              <Link href={useLocalLink('/#Features')}>
+                <Text>{t('featuresFull')}</Text>
               </Link>
 
               <SelectLanguage />

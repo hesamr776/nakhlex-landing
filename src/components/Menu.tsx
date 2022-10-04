@@ -54,7 +54,7 @@ export const Menu = () => {
               onClick={() => setVisible(false)}
               css={{ p: '$0' }}>
               <Image
-                src="/images/sclose.png"
+                src="/images/close.png"
                 alt="Nakhlex close"
                 height={32}
                 width={32}

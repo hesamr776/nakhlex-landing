@@ -52,9 +52,9 @@ export const Intro = () => {
         </Grid>
       </Grid>
 
-      <Grid xs={0} sm={7}>
+      <Grid xs={0} sm={6}>
         <Image
-          css={{ mw: 710, pt: -36 }}
+          css={{ mw: 710, pt: -70 }}
           alt="Nakhlex Exchange"
           src="/images/illustration.png"
           objectFit="fill"
