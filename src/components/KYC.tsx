@@ -23,7 +23,7 @@ export const KYC = () => {
 
       <KYCFlow width={width} />
 
-      {/* <Youtube width={youtubeWidth} /> */}
+      <Youtube width={youtubeWidth} />
 
       <Text css={{ mt: 16, w: youtubeWidth, mx: 'auto', mb: '$10' }}>
         {t('youtubeHint')}
@@ -65,7 +65,7 @@ const Youtube = ({ width }: { width: number }) => {
           style={{ borderRadius: 20, overflow: 'hidden' }}
           width={width}
           height={(width * 9) / 16}
-          src="https://www.youtube.com/embed/Oo-lfZQDH4o"
+          src="https://www.youtube.com/watch?v=a8e30G6ZNjg"
           title="Nakhlex KYC YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
