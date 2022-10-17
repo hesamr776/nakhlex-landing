@@ -5,8 +5,8 @@
   "language": "Language",
   "downloadApp": "Download App",
 
-  "tradeCrypto": "Trade Crypto Simply and Fast",
-  "firstLocal": "The First local cryptocurrency exchange in Iraq",
+  "tradeCrypto": "",
+  "firstLocal": "The First Local Cryptocurrency Exchange in Iraq",
 
   "registerYourPhone": "Enter your mobile phone number to get the Nakhlex App download link.",
   "enterMobile": "Enter your mobile",
@@ -26,28 +26,28 @@
   "TRX": "Tron",
 
   "kycHeader": "Three Apple Watch Series 8 Giveaways",
-  "kycSubheader": "Till 31 October",
+  "kycSubheader": "Till 10 November",
   "kycFlow": "Three Apple Watch Series 8 Giveaways",
-  "kycFlowHint": "Claim your Apple Watch Series 8 by October, 31 through installing the NAKHLEX App, registering and finalizing your KYC to be one of the three lucky winners.",
+  "kycFlowHint": "Claim your Apple Watch Series 8 by installing, signing up, and completing KYC on the NAKHLEX App by 10 November 2022.",
   "downloadApplication": "Download Application",
   "signUp": "Sign-Up",
   "completeKYC": "Complete KYC Level",
 
-  "youtubeHint": "Watch this short tutorial video for knowing how to do KYC on NAKHLEX.",
+  "youtubeHint": "Watch this short tutorial video to learn how to do KYC on NAKHLEX.",
 
   "benefitsHint": "The one-stop Cryptocurrency platform in Iraq",
 
-  "benefit-1": "Languages Coverage",
-  "benefitHint-1": "Our Arabic and Kurdish clients could select their own languages for making trading easy to use both in App usage and support.",
+  "benefit-1": "Simple And Easy To Use",
+  "benefitHint-1": "Nakhlex has been designed to be simple and easy to use by providing the best user experience.",
 
-  "benefit-2": "Quick KYC Under 30 Minutes!",
-  "benefitHint-2": "Authentication is under 30 minutes to make KYC process faster than ever to save our clients time.",
+  "benefit-2": "Quick KYC under 30 minutes!",
+  "benefitHint-2": "KYC is under 30 minutes to make the process faster to save our clients time.",
 
-  "benefit-3": "Simple And Easy To Use",
-  "benefitHint-3": "Nakhlex has been designed to be simple than every other crypto trading platforms by providing the best user experience.",
+  "benefit-3": "Multi-languages",
+  "benefitHint-3": "Our clients could select their languages to make trading easy in App usage and support.",
 
   "featuresFull": "Nakhlex Features",
-  "featuresHint": "Nakhlex is the easiest, fastest and safest App in cryptocurrency based on the needs of people for buying and selling crypto in Iraq. Easily swap between main features and choose your suitable way of trading.",
+  "featuresHint": "Nakhlex is the easiest, fastest, and safest App in cryptocurrency based on the needs of people for buying and selling crypto in Iraq. Easily swap between main features and choose your suitable way of trading.",
 
   "downloadNakhlex": "Download Nakhlex Exchange App Easily!",
   "downloadNakhlexHint": "A safe and easy to use cryptocurrency exchange along with your moments.",
@@ -68,7 +68,7 @@
 
   "P2P": {
     "name": "P2P",
-    "description": "Buy and sell USDT(Tether) safely and easily on Nakhlex P2P Trade platform. Find the best offer and buy and sell USDT with Your Preferred Payment Methods.",
+    "description": "Buy and sell USDT (Tether) safely and easily on the Nakhlex P2P Trade platform. Find the best offer and buy and sell USDT with Your Preferred Payment Methods.",
 
     "advantages": "Advantages of P2P Trade",
 
