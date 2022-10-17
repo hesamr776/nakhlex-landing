@@ -4,11 +4,10 @@ export const Socials = ({ large }: { large?: boolean }) => (
   <Row
     css={{ w: large ? 216 : 120, mt: 80, mb: 16 }}
     align="center"
-    justify="space-between"
-  >
-    <Link href="https://www.facebook.com/Nakhlx" target="_blank">
+    justify="space-between">
+    <Link href="https://www.facebook.com/nakhlexchange" target="_blank">
       <Image
-        src="/images/facebook.png"
+        src="/images/facebook.jpg"
         alt="nakhlex facebook"
         width={20}
         height={20}
@@ -17,33 +16,42 @@ export const Socials = ({ large }: { large?: boolean }) => (
     </Link>
 
     <Link
-      href="https://www.youtube.com/channel/UCChnrcQIziod2XcxVO8vtsQ"
-      target="_blank"
-    >
+      href="https://www.youtube.com/channel/UCotQEI_Yi-irp_SrOcTZXZQ"
+      target="_blank">
       <Image
-        src="/images/youtube.png"
-        alt="nakhlex facebook"
-        width={26}
+        src="/images/youtube.jpg"
+        alt="nakhlex youtube"
+        width={28}
         height={20}
         objectFit="cover"
       />
     </Link>
 
-    <Link href="https://twitter.com/NNakhlex" target="_blank">
+    <Link href="https://t.me/Nakhlexchange" target="_blank">
       <Image
-        src="/images/telegram.png"
-        alt="nakhlex facebook"
+        src="/images/telegram.jpg"
+        alt="nakhlex telegram"
         width={20}
         height={20}
         objectFit="cover"
       />
     </Link>
 
-    <Link href="https://www.instagram.com/nakhlex_official/" target="_blank">
+    <Link href="http://instagram.com/nakhlex_change" target="_blank">
       <Image
-        src="/images/instagram.png"
-        alt="nakhlex facebook"
+        src="/images/instagram.jpg"
+        alt="nakhlex instagram"
         width={20}
+        height={20}
+        objectFit="cover"
+      />
+    </Link>
+
+    <Link href="https://twitter.com/Nakhlexchange" target="_blank">
+      <Image
+        src="/images/twitter.jpg"
+        alt="nakhlex twitter"
+        width={25}
         height={20}
         objectFit="cover"
       />
