@@ -26,8 +26,7 @@ export const DownloadApp = () => {
           ml: isRTL ? 0 : 200,
           pb: 0,
           '@smMax': { mt: 250, mr: 0, ml: 0, w: '100%', pb: 40 },
-        }}
-      >
+        }}>
         <Grid
           xs={12}
           sm={4}
@@ -36,8 +35,7 @@ export const DownloadApp = () => {
             mr: isRTL ? -220 : 0,
             ml: isRTL ? 0 : -220,
             '@smMax': { mt: -200, mr: 0, ml: 0, mb: '$10' },
-          }}
-        >
+          }}>
           <Image
             src="/images/download.png"
             alt="Download Nakhlex"
@@ -56,8 +54,8 @@ export const DownloadApp = () => {
             {t('downloadNakhlexHint')}
           </Text>
 
-          <Row css={{ mw: 330 }}>
-            <Col>
+          <Row css={{ mw: 165 }}>
+            {/* <Col>
               <Link
                 onClick={() => {
                   GAEvent('store', { store: 'app-store' });
@@ -72,7 +70,7 @@ export const DownloadApp = () => {
                   objectFit="cover"
                 />
               </Link>
-            </Col>
+            </Col> */}
 
             <Col>
               <Link
@@ -81,8 +79,7 @@ export const DownloadApp = () => {
                   console.log('google-play');
                 }}
                 href="https://play.google.com/store/apps/details?id=com.nakhlex.exchange"
-                target="_blank"
-              >
+                target="_blank">
                 <Image
                   src="/images/google-play.png"
                   alt="nakhlex google play"
