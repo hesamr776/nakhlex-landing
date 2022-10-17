@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import { useLocalLink } from '../hooks/useLocalLink';
 
-const expireAt = new Date('Sat Oct 31 2022 23:00:00 GMT+0000').getTime(); // 31 october 2022
+const expireAt = new Date('Fri Nov 11 2022 00:00:00 GMT+0000').getTime(); // 31 october 2022
 
 export const KYCTimer = () => {
   const { timer } = useTimer();
@@ -50,9 +50,9 @@ const useTimer = () => {
       const newSeconds = Math.floor((difference % (1000 * 60)) / 1000);
 
       setTimer(
-        `${newDays ? newDays + ':' : ''}${
-          newHours + ':'
-        }${newMinutes}:${newSeconds}`,
+        `${
+          newDays ? newDays + 'd ' : ''
+        }${newHours}:${newMinutes}:${newSeconds}`,
       );
     }, 1000);
 
@@ -91,7 +91,7 @@ const MobileTimer = ({ timer }: { timer: string }) => {
           <Text
             color="white"
             weight="bold"
-            size={20}
+            size={16}
             css={{ lineHeight: '$xs' }}>
             {t('kycHeader')}
           </Text>
@@ -113,6 +113,7 @@ const MobileTimer = ({ timer }: { timer: string }) => {
             css={{
               bg: '$blue700',
               height: 34,
+              minWidth: 100,
               px: '$4',
               ml: '$8',
               borderRadius: 6,
@@ -120,7 +121,11 @@ const MobileTimer = ({ timer }: { timer: string }) => {
             }}
             alignItems="center"
             justify="center">
-            <Text color="white" weight="bold" size={14} css={{ m: '$0' }}>
+            <Text
+              color="white"
+              weight="bold"
+              size={14}
+              css={{ m: '$0', ta: 'center' }}>
               {timer}
             </Text>
           </Grid>
