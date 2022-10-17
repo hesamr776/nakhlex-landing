@@ -25,7 +25,7 @@ export const Header = () => {
       </Head>
 
       <Row align="center" justify="space-between">
-        <Grid xs={9} sm={4}>
+        <Grid xs={12} sm={4}>
           <Link href={useLocalLink('/')}>
             <Image
               src="/images/logo.png"
@@ -36,7 +36,8 @@ export const Header = () => {
           </Link>
         </Grid>
 
-        <Grid xs={2} sm={0}>
+        <Grid xs={6} sm={0}>
+          <DownloadButton />
           <Menu />
         </Grid>
 
@@ -63,37 +64,44 @@ export const Header = () => {
               </Link>
 
               <SelectLanguage />
-
-              <Button
-                onPress={() => {
-                  GAEvent('App-Download-CTA');
-                }}
-                size="xs"
-                css={{
-                  w: 140,
-                  h: 40,
-                  d: 'flex',
-
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  background: 'rgba(0, 102, 153, 0.2)', // #006699
-
-                  border: '1px solid $primary',
-                  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-                  borderRadius: '8px',
-                }}>
-                <Link
-                  href={useLocalLink('/#DownloadApp')}
-                  css={{ bg: '$accents0', px: '$10', py: '$8' }}>
-                  <Text weight="bold" color="$primary">
-                    {t('downloadApp')}
-                  </Text>
-                </Link>
-              </Button>
+              <DownloadButton />
             </Row>
           </Col>
         </Grid>
       </Row>
     </header>
+  );
+};
+
+const DownloadButton = () => {
+  const { t } = useTranslation('common');
+
+  return (
+    <Button
+      onPress={() => {
+        GAEvent('App-Download-CTA');
+      }}
+      size="xs"
+      css={{
+        w: 140,
+        h: 40,
+        d: 'flex',
+
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: 'rgba(0, 102, 153, 0.2)', // #006699
+
+        border: '1px solid $primary',
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+        borderRadius: '8px',
+      }}>
+      <Link
+        href={useLocalLink('/#DownloadApp')}
+        css={{ bg: '$accents0', px: '$10', py: '$8' }}>
+        <Text weight="bold" color="$primary">
+          {t('downloadApp')}
+        </Text>
+      </Link>
+    </Button>
   );
 };
