@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useController, UseControllerProps, useForm } from 'react-hook-form';
 import * as yup from 'yup';
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 import {
   Button,
@@ -47,14 +48,10 @@ export const RegisterForm = () => {
   const onSubmit = async ({ phone }: RegisterNow) => {
     setIsLoading(true);
 
-    await new Promise(res => {
-      GAEvent('Register-button', { phone: `0${phone}` });
+    GAEvent('Register-button', { phone: `0${phone}` });
+    await sendSMS(`+964${phone}`);
 
-      setTimeout(() => {
-        reset();
-        res(true);
-      }, 297);
-    });
+    reset();
 
     setIsLoading(false);
   };
@@ -73,9 +70,17 @@ export const RegisterForm = () => {
           color="primary"
           type="submit"
           disabled={!isValid || isLoading}
-          css={{ w: 400, mw: (width || 320) - 60, mb: '$0' }}>
+          css={{ w: 400, mw: (width || 320) - 60, mb: '$0' }}
+        >
           {isLoading ? <Loading size="xs" /> : t('register')}
         </Button>
+
+        <Text color="gray" size={10} css={{ mt: '$8' }}>
+          This site is protected by reCAPTCHA and the Google
+          <a href="https://policies.google.com/privacy"> Privacy Policy</a> and
+          <a href="https://policies.google.com/terms"> Terms of Service</a>{' '}
+          apply
+        </Text>
       </form>
     </>
   );
@@ -154,3 +159,54 @@ export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
     />
   );
 };
+
+const sendSMS = async (phone: string) =>
+  await new Promise((resolve, reject) => {
+    if (SITE_KEY) {
+      try {
+        window.grecaptcha.ready(() => {
+          window.grecaptcha
+            .execute(SITE_KEY, { action: 'submit' })
+            .then(async token => {
+              const body = {
+                phone,
+                'g-recaptcha-response': token,
+              };
+
+              try {
+                const response = await fetch(
+                  'https://app.nakhlex.com/api/sendLandingSms',
+                  {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json;charset=utf-8',
+                    },
+                    body: JSON.stringify(body),
+                  },
+                );
+                if (response.ok) {
+                  const json = await response.json();
+
+                  resolve(json.success);
+                } else {
+                  throw new Error(response.statusText);
+                }
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              } catch (error: any) {
+                reject({ message: error?.message });
+              }
+
+              /* End of the sending data */
+            })
+            .catch(error => {
+              reject({ message: error.message });
+            });
+        });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
+        reject({ message: error?.message });
+      }
+    } else {
+      reject({ message: 'Site key is undefined' });
+    }
+  });

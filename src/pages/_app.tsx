@@ -10,6 +10,7 @@ import { theme } from '../styles/theme';
 import { KYCTimer } from '../components/KYCTimer';
 import { useRouter } from 'next/router';
 import '../hooks/useFirebase';
+import '../styles/global.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { height } = useWindowSize();

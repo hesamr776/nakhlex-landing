@@ -1,3 +1,15 @@
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (
+        siteKey: string,
+        options: { action: 'submit' },
+      ) => Promise<string | Error>;
+    };
+  }
+}
+
 export type Abbreviation = 'BTC' | 'ETH' | 'TRX' | 'USDT';
 
 export type PriceType = {

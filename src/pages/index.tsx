@@ -1,5 +1,8 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
+import Script from 'next/script';
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
 import { Intro } from '../components/Intro';
 import { Market } from '../components/Market';
 import { KYC } from '../components/KYC';
@@ -10,6 +13,10 @@ import { DownloadApp } from '../components/DownloadApp';
 const Homepage = () => {
   return (
     <>
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`}
+      />
+
       <Intro />
       <Market />
       <KYC />
