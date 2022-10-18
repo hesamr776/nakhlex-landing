@@ -14,8 +14,7 @@ export const KYC = () => {
       <Text
         size={32}
         weight="bold"
-        css={{ pt: '$10', mb: '$8', '@xsMax': { fs: 24 } }}
-      >
+        css={{ pt: '$10', mb: '$8', '@xsMax': { fs: 24 } }}>
         {t('kycFlow')}
       </Text>
 
@@ -58,19 +57,17 @@ const Youtube = ({ width }: { width: number }) => {
       gap={1}
       justify="center"
       alignItems="center"
-      color="$primary"
-    >
+      color="$primary">
       <Grid xs={12} justify="center">
         <iframe
           style={{ borderRadius: 20, overflow: 'hidden' }}
           width={width}
           height={(width * 9) / 16}
-          src="https://www.youtube.com/watch?v=a8e30G6ZNjg"
+          src="https://www.youtube.com/embed/a8e30G6ZNjg"
           title="Nakhlex KYC YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+          allowFullScreen></iframe>
       </Grid>
     </Grid.Container>
   );
