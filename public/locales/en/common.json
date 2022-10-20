@@ -76,6 +76,7 @@
     "advantage02": "Flexible payment methods",
     "advantage03": "Trade at your preferred prices",
     "advantage04": "Protection for your privacy",
+    "advantage05": "Safe Trading Mechanism",
 
     "buy": "Buy Crypto",
     "sell": "Sell Crypto",
@@ -121,6 +122,7 @@
     "advantage02": "Flexible payment methods",
     "advantage03": "Protection for your privacy",
     "advantage04": "",
+    "advantage05": "",
 
     "how": "In OTC Desk service, our customers are able to submit their orders which are more than 3000 dollars through sending messages on Nakhlex Whatsapp on the main page of App directly for a VIP companionship."
   },
@@ -134,6 +136,7 @@
     "advantage02": "Protection for your privacy",
     "advantage03": "",
     "advantage04": "",
+    "advantage05": "",
 
     "how": "In the Fast Trading feature, you are able to determine the amount of coins or Tethers which you want to buy or sell. Hit on buying or selling a coin then, a message will be shown and if every information is correct you hit to accept it then, a successful message will be displayed and your wallet will be charged or reduced."
   },
