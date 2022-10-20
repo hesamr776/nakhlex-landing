@@ -17,7 +17,8 @@ export const Header = () => {
       style={{
         marginBottom: 'auto',
         width: '100%',
-      }}>
+      }}
+    >
       <Head>
         <title>
           Nakhlex {route === '/' ? '| Landing' : route.replace('/', ' | ')}
@@ -94,10 +95,13 @@ const DownloadButton = () => {
         border: '1px solid $primary',
         boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
         borderRadius: '8px',
-      }}>
+      }}
+    >
       <Link
-        href={useLocalLink('/#DownloadApp')}
-        css={{ bg: '$accents0', px: '$10', py: '$8' }}>
+        href="https://bit.ly/3yP4JvB"
+        target="_blank"
+        css={{ bg: '$accents0', px: '$10', py: '$8' }}
+      >
         <Text weight="bold" color="$primary">
           {t('downloadApp')}
         </Text>
