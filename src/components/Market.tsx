@@ -8,8 +8,10 @@ import Echo from 'laravel-echo';
 import socketIOClient from 'socket.io-client';
 import { Abbreviation, MarketType, PriceType } from '../types';
 
+const host = process.env.NEXT_PUBLIC_SOCKET_HOST;
+
 export const echo = new Echo({
-  host: 'wss://staging.bitbayt.com',
+  host,
   path: '/ws/socket.io',
   broadcaster: 'socket.io',
   client: socketIOClient,
@@ -147,7 +149,7 @@ const use24CoinStatus = () => {
   // };
 
   useEffect(() => {
-    // fetch('https://staging.bitbayt.com/api/get24CoinStatus', requestOptions)
+    // fetch('', requestOptions)
     //   .then(response => response.text())
     //   .then(result => console.log(result))
     //   .catch(error => console.log('error', error));
