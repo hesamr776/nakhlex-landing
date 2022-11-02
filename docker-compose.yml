@@ -1,12 +1,19 @@
-version: '2'
+version: '3.7'
 
 services:
-  iraq-web:
-    image: iraq-web
+  armstrong:
+    image: ${IMAGE_TAG}
     build: ./
-    container_name: iraq-web
+    container_name: armstrong
+    deploy:
+      mode: replicated
+      replicas: 2
+      update_config:
+        order: start-first
+        failure_action: rollback
+        delay: 5s
     # volumes:
     #   - ./app:/app
-    ports:
-      - '8080:3000'
-    restart: always
+    # ports:
+    #   - '8080:3000'
+    # restart: always
