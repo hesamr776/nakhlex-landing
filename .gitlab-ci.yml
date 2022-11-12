@@ -20,10 +20,9 @@ before_script:
 
 build:
   stage: build
-  environment:
-    NEXT_PUBLIC_SOCKET_HOST: $NEXT_PUBLIC_SOCKET_HOST
-    NEXT_PUBLIC_RECAPTCHA_SITE_KEY: $NEXT_PUBLIC_RECAPTCHA_SITE_KEY
   script:
+    - echo "NEXT_PUBLIC_SOCKET_HOST=$NEXT_PUBLIC_SOCKET_HOST" > .env.local
+    - echo "NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$NEXT_PUBLIC_RECAPTCHA_SITE_KEY" >> .env.local
     - docker build -f Dockerfile -t $IMAGE_TAG .
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
     - docker push $IMAGE_TAG
