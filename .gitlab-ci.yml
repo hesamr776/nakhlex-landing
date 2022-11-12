@@ -11,13 +11,6 @@ variables:
 services:
   - docker:20.10.16-dind
 
-before_script:
-  - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
-  - eval $(ssh-agent -s)
-  - echo "${SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add -
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-
 build:
   stage: build
   script:
@@ -33,6 +26,11 @@ deploy_to_staging:
   image: alpine:latest
   stage: deploy
   script:
+    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
+    - eval $(ssh-agent -s)
+    - echo "${STAGING_SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
     - ssh -o StrictHostKeyChecking=no $STAGING_SERVER_USER@$STAGING_SERVER_IP "cd $STAGING_PROJECT_DIR && git checkout $CI_COMMIT_BRANCH && git pull origin $CI_COMMIT_BRANCH && docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY && docker pull $IMAGE_TAG && export IMAGE_TAG=$IMAGE_TAG && docker stack deploy --with-registry-auth -c docker-compose.yml armstrong"
   only:
     - staging
@@ -42,6 +40,11 @@ deploy_to_production:
   image: alpine:latest
   stage: deploy
   script:
+    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
+    - eval $(ssh-agent -s)
+    - echo "${PRODUCTION_SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
     - ssh -o StrictHostKeyChecking=no $PRODUCTION_SERVER_USER@$PRODUCTION_SERVER_IP "cd $PRODUCTION_PROJECT_DIR && git checkout $CI_COMMIT_BRANCH && git pull origin $CI_COMMIT_BRANCH && docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY && docker pull $IMAGE_TAG && export IMAGE_TAG=$IMAGE_TAG && docker stack deploy --with-registry-auth -c docker-compose.yml armstrong"
   only:
     - staging
