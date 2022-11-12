@@ -9,7 +9,6 @@ import socketIOClient from 'socket.io-client';
 import { Abbreviation, MarketType, PriceType } from '../types';
 
 const host = process.env.NEXT_PUBLIC_SOCKET_HOST;
-console.log('host: ', host);
 
 export const echo = new Echo({
   host,
