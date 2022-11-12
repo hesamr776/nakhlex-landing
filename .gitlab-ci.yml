@@ -47,6 +47,4 @@ deploy_to_production:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - ssh -o StrictHostKeyChecking=no $PRODUCTION_SERVER_USER@$PRODUCTION_SERVER_IP "cd $PRODUCTION_PROJECT_DIR && git checkout $CI_COMMIT_BRANCH && git pull origin $CI_COMMIT_BRANCH && docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY && docker pull $IMAGE_TAG && export IMAGE_TAG=$IMAGE_TAG && docker stack deploy --with-registry-auth -c docker-compose.yml armstrong"
-  only:
-    - master
   when: manual
