@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { useWindowSize } from '../hooks/dimensions';
 import { theme } from '../styles/theme';
-import { KYCTimer } from '../components/KYCTimer';
+
 import { useRouter } from 'next/router';
 import '../hooks/useFirebase';
 import '../styles/global.css';
@@ -18,8 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <NextUIProvider theme={theme}>
-      {route !== '/appLegalAndPrivacy' && <KYCTimer />}
-
       <Grid
         css={{
           '@sm': { mx: '$12' },
@@ -27,16 +25,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           height: (height || 400) - 16,
           d: 'flex',
           fd: 'column',
-        }}
-      >
+        }}>
         {route !== '/appLegalAndPrivacy' && <Header />}
 
         <main
           style={{
             padding: '0px 8px',
             flex: 1,
-          }}
-        >
+          }}>
           <Component {...pageProps} />
         </main>
 
