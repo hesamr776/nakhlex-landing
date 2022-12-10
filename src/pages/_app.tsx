@@ -5,6 +5,7 @@ import { Grid, NextUIProvider } from '@nextui-org/react';
 
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
+import { CampaignTimer } from '../components/CampaignTimer';
 import { useWindowSize } from '../hooks/dimensions';
 import { theme } from '../styles/theme';
 
@@ -18,11 +19,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <NextUIProvider theme={theme}>
+      {route !== '/appLegalAndPrivacy' && <CampaignTimer />}
       <Grid
         css={{
           '@sm': { mx: '$12' },
           '@md': { mx: '$28' },
-          height: (height || 400) - 16,
+          height: (height || 400) - 16 - 60,
           d: 'flex',
           fd: 'column',
         }}>
