@@ -16,7 +16,7 @@ export const Socials = ({ large }: { large?: boolean }) => (
     </Link>
 
     <Link
-      href="https://www.youtube.com/channel/UCotQEI_Yi-irp_SrOcTZXZQ"
+      href="https://www.youtube.com/channel/UCChnrcQIziod2XcxVO8vtsQ"
       target="_blank">
       <Image
         src="/images/youtube.jpg"
