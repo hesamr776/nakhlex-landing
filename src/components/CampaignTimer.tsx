@@ -1,7 +1,6 @@
 import { Grid, Image, Link, Text } from '@nextui-org/react';
 
 import { useEffect, useState } from 'react';
-import { useLocalLink } from '../hooks/useLocalLink';
 
 const expireAt = new Date('Sun Dec 18 2022 00:00:00 GMT+0000').getTime(); // 18 december 2022
 
@@ -9,7 +8,7 @@ export const CampaignTimer = () => {
   const { timer } = useTimer();
 
   return (
-    <Link href={useLocalLink('/#campaign')} css={{ w: '100%' }}>
+    <Link href="https://t.me/Nakhlexchange" target="_blank" css={{ w: '100%' }}>
       <Grid.Container>
         <Grid xs={12} sm={0}>
           <MobileTimer timer={timer} />
