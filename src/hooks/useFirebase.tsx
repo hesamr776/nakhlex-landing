@@ -1,5 +1,10 @@
 import { FirebaseApp, getApps, initializeApp } from 'firebase/app';
-import { Analytics, getAnalytics, logEvent } from 'firebase/analytics';
+import {
+  Analytics,
+  getAnalytics,
+  logEvent,
+  isSupported,
+} from 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBX0Ko5UGLTCAQrZdMKWqIcbn3pXvwUCqo',
@@ -12,16 +17,27 @@ const firebaseConfig = {
 };
 
 const firebaseApps = getApps();
-let firebaseApp: FirebaseApp | undefined;
 let analyticsInstance: Analytics;
 
-if (!firebaseApps.length) {
-  firebaseApp = initializeApp(firebaseConfig);
-  analyticsInstance = getAnalytics(firebaseApp);
-} else {
-  firebaseApp = firebaseApps[0];
-  analyticsInstance = getAnalytics(firebaseApp);
-}
+const initialAnalytics = async (app: FirebaseApp) => {
+  if ((await isSupported()) && app) {
+    analyticsInstance = getAnalytics(app);
+  }
+};
+
+const initialFirebase = () => {
+  let firebaseApp: FirebaseApp;
+
+  if (!firebaseApps.length) {
+    firebaseApp = initializeApp(firebaseConfig);
+  } else {
+    firebaseApp = firebaseApps[0];
+  }
+
+  initialAnalytics(firebaseApp);
+};
+
+initialFirebase();
 
 export const GAEvent = (
   eventName: string,
