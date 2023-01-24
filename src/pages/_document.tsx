@@ -10,6 +10,7 @@ import Document, {
 } from 'next/document';
 
 import { CssBaseline } from '@nextui-org/react';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -39,6 +40,22 @@ class MyDocument extends Document {
           <meta
             name="description"
             content="نخلِکس هي إحدی المنصات الموثوقة في العراق لبيع و شراء معظم العملات الرقمية مثل التيثر، إيثريوم، لايتکوين، إکس آر بي، ثيرون و غيرها"
+          />
+
+          <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-G3SGN102Z9"
+          ></Script>
+          <Script
+            strategy="afterInteractive"
+            id="GTag"
+            dangerouslySetInnerHTML={{
+              __html: `window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-G3SGN102Z9')`,
+            }}
           />
         </Head>
 
