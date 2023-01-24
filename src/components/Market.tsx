@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-import { Image, Row, Table, Text } from '@nextui-org/react';
+import { Image, Row, Table, Text, Button } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
 import { TFunction } from 'react-i18next';
 
@@ -19,39 +19,40 @@ export const echo = new Echo({
 
 const columns = [{ uid: 'coin' }, { uid: 'price' }, { uid: 'daily' }];
 
-const initMarkets: MarketType[] = [
+let initMarkets: MarketType[] = [
   {
     id: 'BTC',
     coin: 'BTC',
-    price: '19902.49',
-    daily: '2.4',
+    price: '12900.35',
+    daily: '',
   },
   {
     id: 'ETH',
     coin: 'ETH',
-    price: '1572.09',
-    daily: '3.3',
+    price: '1620.09',
+    daily: '',
   },
   {
     id: 'USDT',
     coin: 'USDT',
     price: '1.00',
-    daily: '0.0',
+    daily: '',
   },
   {
     id: 'TRX',
     coin: 'TRX',
     price: '0.06',
-    daily: '-2.3',
+    daily: '',
   },
 ];
 
 export const Market = () => {
   const { t } = useTranslation('common');
   const [markets, setMarkets] = useState(initMarkets);
+  const [isExpanded, setExpanded] = useState(false);
 
-  use24CoinStatus();
   useCryptoChannel(setMarkets);
+  useDailyChanges(markets);
 
   return (
     <section id="Market">
@@ -63,10 +64,10 @@ export const Market = () => {
         css={{
           height: 'auto',
           minWidth: '100%',
-          my: '$20',
+          mt: '$20',
         }}
         selectionMode="none">
-        <Table.Header columns={columns}>
+        <Table.Header columns={columns} key="market-head">
           {column => (
             <Table.Column
               key={column.uid}
@@ -81,11 +82,11 @@ export const Market = () => {
           )}
         </Table.Header>
 
-        <Table.Body items={markets}>
+        <Table.Body items={isExpanded ? markets : markets.slice(0, 4)}>
           {item => (
-            <Table.Row>
+            <Table.Row key={item.id || `${Math.random() * 100}`}>
               {columnKey => (
-                <Table.Cell>
+                <Table.Cell key={columnKey}>
                   {RenderCell(item, columnKey as keyof MarketType, t)}
                 </Table.Cell>
               )}
@@ -93,6 +94,17 @@ export const Market = () => {
           )}
         </Table.Body>
       </Table>
+
+      <Button
+        light
+        css={{ mx: 'auto', mb: '$20' }}
+        color="primary"
+        ripple={false}
+        onPress={() => {
+          setExpanded(!isExpanded);
+        }}>
+        {isExpanded ? 'Show Less' : 'Show More'}
+      </Button>
     </section>
   );
 };
@@ -111,7 +123,7 @@ const RenderCell = (
           <Row css={{ w: 32 }}>
             <Image
               css={{ mx: '$0 !important' }}
-              src={`/images/${cellValue}.png`}
+              src={`https://app.nakhlex.com/Images/Coins/${cellValue}.png`}
               alt="nakhlex market"
               width={32}
               height={32}
@@ -129,7 +141,11 @@ const RenderCell = (
       return <Text>{parseFloat(cellValue).toFixed(2)} $</Text>;
     case 'daily':
       return (
-        <Text color={+cellValue < 0 ? 'red' : 'green'}>{cellValue} %</Text>
+        <Text
+          color={+cellValue < 0 ? 'red' : 'green'}
+          css={{ textAlign: 'end', direction: 'ltr' }}>
+          {cellValue} %
+        </Text>
       );
 
     default:
@@ -137,44 +153,98 @@ const RenderCell = (
   }
 };
 
-const use24CoinStatus = () => {
-  // const myHeaders = new Headers();
-  // myHeaders.append('Authorization', 'Bearer null');
-  // myHeaders.append('Accept', 'application/json');
-
-  // const requestOptions = {
-  //   method: 'GET',
-  //   headers: myHeaders,
-  //   redirect: 'follow' as RequestRedirect,
-  // };
-
+const useDailyChanges = async (markets: MarketType[]) => {
   useEffect(() => {
-    // fetch('', requestOptions)
-    //   .then(response => response.text())
-    //   .then(result => console.log(result))
-    //   .catch(error => console.log('error', error));
+    (async () => {
+      if (markets && markets.length) {
+        const newMarkets = await Promise.all(
+          markets.map(async market => {
+            const daily = market.daily || (await Coin1dayStatus(market.id));
+            return { ...market, daily };
+          }),
+        );
+        initMarkets = newMarkets;
+      }
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [markets]);
+};
+
+const Coin1dayStatus = async (id: Abbreviation) => {
+  const myHeaders = new Headers();
+  myHeaders.append('X-CoinAPI-Key', '3118103F-1992-4EE1-9588-3E205C1A0A1F');
+  myHeaders.append('Accept', 'application/json');
+
+  const requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow' as RequestRedirect,
+  };
+
+  return await new Promise<string>(resolve => {
+    fetch(
+      `https://rest.coinapi.io/v1/exchangerate/${id}/USDT/history?period_id=1DAY&limit=1`,
+      requestOptions,
+    )
+      .then(response => response.text())
+      .then(body => JSON.parse(body))
+      .then(result => {
+        if (result && result.length) {
+          resolve(
+            `${(
+              ((+result[0].rate_close - +result[0].rate_open) /
+                (result[0].rate_open || 1)) *
+              100
+            ).toFixed(1)}`,
+          );
+        } else {
+          resolve('0');
+        }
+      })
+      .catch(() => {
+        resolve('0');
+      });
+  });
 };
 
 const useCryptoChannel = (
   setMarkets: Dispatch<SetStateAction<MarketType[]>>,
 ) => {
   useEffect(() => {
-    echo.channel('crypto-channel').listen('.Price', (event: PriceType) => {
-      const prices = event.prices.global;
+    (async () =>
+      echo
+        .channel('crypto-channel-V2')
+        .listen('.Price', async (event: PriceType) => {
+          const prices = event.prices.global;
 
-      const newMarkets = (Object.keys(prices) as Abbreviation[]).map(id => {
-        const index = initMarkets.findIndex(initItem => initItem.id === id);
+          const newMarkets = (Object.keys(prices) as Abbreviation[]).map(
+            (id: Abbreviation) => {
+              const index = initMarkets.findIndex(
+                initItem => initItem.id === id,
+              );
 
-        return {
-          ...initMarkets[index],
-          price: prices[id].USD,
-        };
-      });
+              if (index < 0) {
+                const newMarketItem = {
+                  id,
+                  coin: id,
+                  price: prices[id].USD,
+                  daily: '',
+                };
 
-      setMarkets(newMarkets);
-    });
+                initMarkets = [...initMarkets, newMarketItem];
+
+                return newMarketItem;
+              }
+
+              return {
+                ...initMarkets[index],
+                price: prices[id].USD,
+              };
+            },
+          );
+
+          setMarkets(newMarkets.sort((a, b) => +b.price - +a.price));
+        }))();
 
     return () => {
       echo.leave('');
