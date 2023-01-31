@@ -5,10 +5,12 @@ const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 import { Intro } from '../components/Intro';
 import { Market } from '../components/Market';
-import { KYC } from '../components/KYC';
+
 import { Benefits } from '../components/Benefits';
 import { Features } from '../components/Features';
 import { DownloadApp } from '../components/DownloadApp';
+import { TradeFlow } from '../components/TradeFlow';
+import { VideoPlayer } from '../components/VideoPlayer';
 
 const Homepage = () => {
   return (
@@ -19,8 +21,9 @@ const Homepage = () => {
 
       <Intro />
       <Market />
-      <KYC />
       <Benefits />
+      <VideoPlayer />
+      <TradeFlow />
       <Features />
       <DownloadApp />
     </>

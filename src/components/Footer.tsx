@@ -15,7 +15,7 @@ export const Footer = () => {
         paddingBottom: 60,
       }}
     >
-      <Grid.Container>
+      <Grid.Container css={{ mw: 1136, mx: 'auto' }} justify="space-between">
         <Grid xs={12} sm={0} css={{ mb: '$10' }}>
           <Row justify="space-around" align="center">
             <Link href={useLocalLink('/aboutUs')} color="text">
@@ -43,13 +43,7 @@ export const Footer = () => {
         </Grid>
 
         <Grid xs={0} sm={6} justify="flex-start">
-          <Text i color="$gray600">
-            {t('madeInIraq')}
-          </Text>
-        </Grid>
-
-        <Grid xs={0} sm={6} justify="flex-end">
-          <Row justify="space-between" align="center" css={{ mw: 600 }}>
+          <Row justify="space-between" align="center" css={{ mw: 370 }}>
             <Link href={useLocalLink('/aboutUs')} color="text">
               {t('aboutUs')}
             </Link>
@@ -66,6 +60,12 @@ export const Footer = () => {
               {t('legalAndPrivacy')}
             </Link>
           </Row>
+        </Grid>
+
+        <Grid xs={0} sm={6} justify="flex-end">
+          <Text i color="$gray600">
+            {t('madeInIraq')}
+          </Text>
         </Grid>
       </Grid.Container>
     </footer>

@@ -6,7 +6,7 @@ export const theme = createTheme({
     colors: {
       blue200: '#BBC1FF',
       blue300: '#838EFF',
-      blue400: '#006699',
+      blue400: '#F56300',
       blue500: '#3E48B0',
       blue600: '#1C2572',
       blue700: '#015D8B',
@@ -22,9 +22,9 @@ export const theme = createTheme({
       primarySolidContrast: '$white',
       primaryShadow: '$blue500',
 
-      brown200: '#DD9900',
-      brown300: '#B68005',
-      brown400: '#8F670B',
+      brown200: '#F9F7FA',
+      brown300: '#F3F0F7',
+      brown400: '#726B7B',
       brown500: '#694D10',
       brown600: '#423416',
       brown700: '#1B1B1B',
