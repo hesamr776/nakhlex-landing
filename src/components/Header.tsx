@@ -25,26 +25,23 @@ export const Header = () => {
         </title>
       </Head>
 
-      <Row align="center" justify="space-between">
-        <Grid xs={12} sm={4}>
-          <Link href={useLocalLink('/')}>
-            <Image
-              src="/images/logo.png"
-              alt="Nakhlex logo"
-              height={62}
-              width={160}
-            />
-          </Link>
-        </Grid>
+      <Row
+        align="center"
+        justify="space-between"
+        css={{ mw: 1136, mx: 'auto' }}
+      >
+        <Grid xs={12} sm={8}>
+          <Row justify="space-between" align="center" css={{ mw: 450 }}>
+            <Link href={useLocalLink('/')}>
+              <Image
+                src="/images/logo.png"
+                alt="Nakhlex logo"
+                height={62}
+                width={160}
+              />
+            </Link>
 
-        <Grid xs={6} sm={0}>
-          <DownloadButton />
-          <Menu />
-        </Grid>
-
-        <Grid xs={0} sm={8} justify="flex-end">
-          <Col css={{ mw: 600 }}>
-            <Row justify="space-between" align="center">
+            <Row justify="space-between" align="center" css={{ mw: 200 }}>
               {route !== '/' && (
                 // eslint-disable-next-line react-hooks/rules-of-hooks
                 <Link href={useLocalLink('/')}>
@@ -63,8 +60,59 @@ export const Header = () => {
               <Link href={useLocalLink('/#Features')}>
                 <Text>{t('featuresFull')}</Text>
               </Link>
+            </Row>
+          </Row>
+        </Grid>
 
+        <Grid xs={6} sm={0}>
+          <DownloadButton />
+          <Menu />
+        </Grid>
+
+        <Grid xs={0} sm={4} justify="flex-end">
+          <Col css={{ mw: 320 }}>
+            <Row justify="flex-end" align="center">
               <SelectLanguage />
+              <Link
+                css={{
+                  borderWidth: 0,
+                  borderRightWidth: 1,
+                  borderColor: '$secondaryLight',
+                  borderStyle: 'solid',
+                  mr: '$10',
+                  ml: '$4',
+                  pr: '$10',
+                }}
+              >
+                <Image
+                  src="/images/facebook.png"
+                  alt="nakhlex facebook"
+                  width={30}
+                  height={30}
+                  objectFit="cover"
+                />
+              </Link>
+
+              <Link
+                css={{
+                  borderWidth: 0,
+                  borderLeftWidth: 1,
+                  borderColor: '$secondaryLight',
+                  borderStyle: 'solid',
+                  ml: '$10',
+                  m4: '$4',
+                  pl: '$10',
+                }}
+              >
+                <Image
+                  src="/images/whatsapp.png"
+                  alt="nakhlex whatsapp"
+                  width={30}
+                  height={30}
+                  objectFit="cover"
+                />
+              </Link>
+
               <DownloadButton />
             </Row>
           </Col>
@@ -75,37 +123,15 @@ export const Header = () => {
 };
 
 const DownloadButton = () => {
-  const { t } = useTranslation('common');
-
   return (
-    <Button
-      onPress={() => {
-        GAEvent('App-Download-CTA');
-      }}
-      size="xs"
-      css={{
-        w: 140,
-        h: 40,
-        d: 'flex',
-
-        justifyContent: 'center',
-        alignItems: 'center',
-        background: 'rgba(0, 102, 153, 0.2)', // #006699
-
-        border: '1px solid $primary',
-        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-        borderRadius: '8px',
-      }}
-    >
-      <Link
-        href="https://bit.ly/3yP4JvB"
-        target="_blank"
-        css={{ bg: '$accents0', px: '$10', py: '$8' }}
-      >
-        <Text weight="bold" color="$primary">
-          {t('downloadApp')}
-        </Text>
-      </Link>
-    </Button>
+    <Link href={useLocalLink('/#DownloadApp')}>
+      <Image
+        src="/images/iPhone.png"
+        alt="nakhlex download links"
+        width={30}
+        height={30}
+        objectFit="cover"
+      />
+    </Link>
   );
 };
