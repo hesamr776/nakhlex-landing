@@ -1,9 +1,9 @@
-import { Card, Col, Grid, Text } from '@nextui-org/react';
+import { Card, Grid, Text } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
+import { DashLine } from './DashLine';
 
 type BenefitType = {
   id: number;
-  image: string;
   header: string;
   title: string;
 };
@@ -14,70 +14,85 @@ export const Benefits = () => {
   const benefits: BenefitType[] = [
     {
       id: 1,
-      image: '/images/benefit-1.png',
       header: t('benefit-1'),
       title: t('benefitHint-1'),
     },
     {
       id: 2,
-      image: '/images/benefit-2.png',
       header: t('benefit-2'),
       title: t('benefitHint-2'),
     },
     {
       id: 3,
-      image: '/images/benefit-3.png',
       header: t('benefit-3'),
       title: t('benefitHint-3'),
     },
   ];
 
   return (
-    <section id="Benefits">
-      <Grid.Container>
-        <Grid xs={12} justify="center">
-          <Text
-            size={32}
-            weight="bold"
-            css={{ my: '$20', '@xsMax': { fs: 20, w: 300, my: '$10' } }}>
-            {t('benefitsHint')}
-          </Text>
-        </Grid>
+    <Grid.Container
+      id="Benefits"
+      css={{
+        mw: 1136,
+        bg: '$secondaryLight',
+        p: '$12',
+        mt: '$18',
+        mx: 'auto',
+        borderRadius: 24,
+        overflowX: 'auto',
+      }}
+    >
+      <Grid xs={12} alignItems="center">
+        <Text size={24} weight="bold">
+          {t('benefitsHint')}
+        </Text>
+        <DashLine />
+      </Grid>
 
+      <Grid xs={12} justify="space-between" css={{ overflowX: 'auto' }}>
         {benefits.map(BenefitItem)}
-      </Grid.Container>
-    </section>
+      </Grid>
+    </Grid.Container>
   );
 };
 
-const BenefitItem = (benefit: BenefitType) => (
-  <Grid
+const BenefitItem = (benefit: BenefitType, index: number) => (
+  <Card
     key={`benefit-${benefit.id}`}
-    xs={12}
-    sm={4}
-    direction="row"
-    alignItems="flex-start"
-    justify="center">
-    <Card css={{ w: 300, bg: 'transparent' }}>
-      <Card.Body css={{ p: '$0' }}>
-        <Card.Image
-          src={benefit.image}
-          width={300}
-          height={300}
-          objectFit="cover"
-          alt="nakhlex benefits"
-        />
-      </Card.Body>
+    css={{
+      filter: 'none',
+      minWidth: 300,
+      maxWidth: 300,
+      h: 270,
+      bg: 'transparent',
+      mt: '$12',
+      mx: '$2',
+    }}
+  >
+    <Card.Body
+      css={{
+        p: '$12',
+        bg: '$white',
+        alignItems: 'flex-start',
+        borderRadius: 22,
+      }}
+    >
+      <Text
+        size={20}
+        weight="bold"
+        color="$primary"
+        css={{ lineHeight: '20px' }}
+      >
+        0{index + 1}
+      </Text>
 
-      <Card.Footer>
-        <Col css={{ mh: 170 }}>
-          <Text size={18} weight="bold" css={{ mt: '$8', mb: '$4' }}>
-            {benefit.header}
-          </Text>
+      <Text size={20} weight="bold" css={{ mt: '$8', mb: '$4' }}>
+        {benefit.header}
+      </Text>
 
-          <Text css={{ mb: '$8' }}>{benefit.title}</Text>
-        </Col>
-      </Card.Footer>
-    </Card>
-  </Grid>
+      <Text css={{ ta: 'start' }} size={14}>
+        {benefit.title}
+      </Text>
+    </Card.Body>
+  </Card>
 );
