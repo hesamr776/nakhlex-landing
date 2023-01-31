@@ -15,12 +15,18 @@ export const Features = () => {
   const [tab, setTab] = useState(tabs[0].id);
 
   return (
-    <Grid.Container id="Features" css={{ mw: 1136, mx: 'auto' }}>
+    <Grid.Container
+      id="Features"
+      css={{
+        mw: 1136,
+        mx: 'auto',
+        '@xsMax': { mw: 375 },
+        '@smMax': { mw: 600 },
+      }}>
       <Text
         size={32}
         weight="bold"
-        css={{ pt: '$20', m: '$0', '@xsMax': { fs: 24 } }}
-      >
+        css={{ pt: '$20', m: '$0', '@xsMax': { fs: 24 } }}>
         {t('featuresFull')}
       </Text>
 
@@ -57,8 +63,7 @@ const Tabs = ({
         justifyContent: 'center',
         borderBottom: '2px solid',
         borderBottomColor: activeTab === tab.id ? '$primary' : '#BBBBBB',
-      }}
-    >
+      }}>
       <Button
         disabled={tab.isDisable}
         onPress={() => {
@@ -66,14 +71,12 @@ const Tabs = ({
 
           GAEvent('features', { tab: tab.id });
         }}
-        css={{ w: '100%' }}
-      >
+        css={{ w: '100%' }}>
         <Text
           size={18}
           weight="bold"
           css={{ '@xsMax': { fs: 14 } }}
-          color={activeTab === tab.id ? '$primary' : '#BBBBBB'}
-        >
+          color={activeTab === tab.id ? '$primary' : '#BBBBBB'}>
           {tab.label}
         </Text>
       </Button>
@@ -85,8 +88,7 @@ const Tabs = ({
       align="flex-end"
       css={{
         m: '40px 0',
-      }}
-    >
+      }}>
       <Button.Group
         color="secondary"
         light
@@ -95,8 +97,7 @@ const Tabs = ({
           mw: 480,
 
           justifyContent: 'space-between',
-        }}
-      >
+        }}>
         {tabs.map(TabItem)}
       </Button.Group>
       <DashLine noMargin />
@@ -126,15 +127,16 @@ const FeatureDetails = ({ featureName }: { featureName: string }) => {
                 css={{
                   bg: '$secondaryLight',
                   borderRadius: 20,
-                  minWidth: 180,
+                  minWidth: 160,
                   maxWidth: 220,
+
                   pt: '$5',
                   pb: '$8',
                   px: '$8',
                   mx: '$5',
                   m: '$5',
-                }}
-              >
+                  '@smMax': { width: 160, mx: '$2' },
+                }}>
                 <Text size={14} color="secondary" css={{ m: '$0' }}>
                   0{index}
                 </Text>
@@ -158,8 +160,7 @@ const FeatureDetails = ({ featureName }: { featureName: string }) => {
             }}
             justify="center"
             alignItems="center"
-            xs={12}
-          >
+            xs={12}>
             <Text size={22} weight="bold">
               {t('howWorks', { feature: t(`${featureName}.name`) })}
             </Text>
@@ -180,8 +181,7 @@ const FeatureDetails = ({ featureName }: { featureName: string }) => {
               }}
               alignItems="center"
               justify="center"
-              xs={12}
-            >
+              xs={12}>
               <Text size={14} weight="bold" css={{ mt: '$16' }}>
                 {t(`${featureName}.how`)}
               </Text>
@@ -197,24 +197,22 @@ const HowP2PWorks = () => {
   const { t } = useTranslation();
   return (
     <>
-      <Grid justify="center" xs={6} css={{ px: '$4' }}>
+      <Grid justify="center" xs={12} sm={6} css={{ px: '$4' }}>
         <Col
           css={{
             minHeight: 279,
-
+            '@smMax': { minHeight: 229 },
             bg: 'white',
             borderRadius: 20,
             mb: '$10',
             mr: '$4',
             px: '$8',
-          }}
-        >
+          }}>
           <Text
             size={20}
             color="primary"
             weight="bold"
-            css={{ mt: '$8', mx: '$0' }}
-          >
+            css={{ mt: '$8', mx: '$0' }}>
             {t(`P2P.buy`)}
           </Text>
 
@@ -236,24 +234,23 @@ const HowP2PWorks = () => {
         </Col>
       </Grid>
 
-      <Grid justify="center" xs={6} css={{ px: '$4' }}>
+      <Grid justify="center" xs={12} sm={6} css={{ px: '$4' }}>
         <Col
           css={{
             minHeight: 279,
+            '@smMax': { minHeight: 229 },
 
             bg: 'white',
             borderRadius: 20,
             mb: '$10',
             ml: '$4',
             px: '$8',
-          }}
-        >
+          }}>
           <Text
             size={20}
             color="primary"
             weight="bold"
-            css={{ mt: '$8', mx: '$0' }}
-          >
+            css={{ mt: '$8', mx: '$0' }}>
             {t(`P2P.sell`)}
           </Text>
 

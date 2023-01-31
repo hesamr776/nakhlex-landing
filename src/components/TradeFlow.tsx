@@ -6,7 +6,7 @@ export const TradeFlow = () => {
 
   return (
     <section id="TradeFlow">
-      <Grid.Container>
+      <Grid.Container css={{ mw: 365, mx: 'auto' }}>
         <Grid xs={12} justify="center">
           <Text
             size={32}
@@ -16,8 +16,7 @@ export const TradeFlow = () => {
               mt: '$17',
               mb: '$12',
               '@xsMax': { fs: 20, w: 300, mt: '$10' },
-            }}
-          >
+            }}>
             {t('TradeFlowHint')}
           </Text>
         </Grid>

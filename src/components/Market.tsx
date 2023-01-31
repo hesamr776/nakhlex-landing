@@ -56,80 +56,74 @@ export const Market = () => {
   useDailyChanges(markets);
 
   return (
-    <section id="Market">
-      <Grid.Container
-        css={{
-          mw: 1136,
-          bg: '$secondaryLight',
-          p: '$12',
-          mt: '$20',
-          mx: 'auto',
-          borderRadius: 8,
-          '@xsMax': { fs: 20, w: 300, my: '$10' },
-        }}
-      >
-        <Table
-          striped
-          css={{ mw: 1072, p: '$0' }}
-          style={{ width: 'calc(100vw - 80px)' }}
-          shadow={false}
-          aria-label="Market Table"
-          selectionMode="none"
-        >
-          <Table.Header columns={columns} key="market-head">
-            {column => (
-              <Table.Column
-                key={column.uid}
-                css={{
-                  borderRadius: '0!important',
-                  textAlign: 'start',
-                  paddingLeft: '$5',
-                  paddingRight: '$5',
-                  background: 'transparent',
-                }}
-              >
-                {t(column.uid)}
-              </Table.Column>
-            )}
-          </Table.Header>
+    <Grid.Container
+      id="Market"
+      css={{
+        mw: 1136,
+        bg: '$secondaryLight',
+        p: '$12',
+        mt: '$20',
+        mx: 'auto',
+        borderRadius: 8,
+        '@xsMax': { fs: 20, my: '$10' },
+      }}>
+      <Table
+        striped
+        css={{ mw: 1072, p: '$0' }}
+        style={{ width: 'calc(100vw - 80px)' }}
+        shadow={false}
+        aria-label="Market Table"
+        selectionMode="none">
+        <Table.Header columns={columns} key="market-head">
+          {column => (
+            <Table.Column
+              key={column.uid}
+              css={{
+                borderRadius: '0!important',
+                textAlign: 'start',
+                paddingLeft: '$5',
+                paddingRight: '$5',
+                background: 'transparent',
+              }}>
+              {t(column.uid)}
+            </Table.Column>
+          )}
+        </Table.Header>
 
-          <Table.Body items={isExpanded ? markets : markets.slice(0, 4)}>
-            {item => (
-              <Table.Row key={item.id || `${Math.random() * 100}`}>
-                {columnKey => (
-                  <Table.Cell key={columnKey}>
-                    {RenderCell(item, columnKey as keyof MarketType, t)}
-                  </Table.Cell>
-                )}
-              </Table.Row>
-            )}
-          </Table.Body>
-        </Table>
+        <Table.Body items={isExpanded ? markets : markets.slice(0, 4)}>
+          {item => (
+            <Table.Row key={item.id || `${Math.random() * 100}`}>
+              {columnKey => (
+                <Table.Cell key={columnKey}>
+                  {RenderCell(item, columnKey as keyof MarketType, t)}
+                </Table.Cell>
+              )}
+            </Table.Row>
+          )}
+        </Table.Body>
+      </Table>
 
-        <Grid
-          xs={12}
-          css={{ mt: '$12' }}
-          justify="space-between"
-          alignItems="center"
-        >
-          <DashLine />
+      <Grid
+        xs={12}
+        css={{ mt: '$12' }}
+        justify="space-between"
+        alignItems="center">
+        <DashLine />
 
-          <Button
-            light
-            css={{ mx: 'auto' }}
-            color="primary"
-            ripple={false}
-            onPress={() => {
-              setExpanded(!isExpanded);
-            }}
-          >
-            {isExpanded ? 'Show Less' : 'Show More'}
-          </Button>
+        <Button
+          light
+          css={{ mx: 'auto' }}
+          color="primary"
+          ripple={false}
+          onPress={() => {
+            setExpanded(!isExpanded);
+          }}>
+          {isExpanded ? 'Show Less' : 'Show More'}
+        </Button>
 
-          <DashLine />
-        </Grid>
-      </Grid.Container>
-    </section>
+        <DashLine />
+      </Grid>
+    </Grid.Container>
   );
 };
 
@@ -167,8 +161,7 @@ const RenderCell = (
       return (
         <Text
           color={+cellValue < 0 ? 'red' : 'green'}
-          css={{ textAlign: 'end', direction: 'ltr' }}
-        >
+          css={{ textAlign: 'end', direction: 'ltr' }}>
           {cellValue} %
         </Text>
       );

@@ -63,7 +63,13 @@ export const RegisterForm = () => {
         px: '$8',
         py: '$10',
       }}>
-      <Text size={13} color="secondary" css={{ m: '$0' }}>
+      <Text
+        size={13}
+        color="secondary"
+        css={{
+          m: '$0',
+          '@smMax': { fontWeight: '$bold', ta: 'center', fs: 16 },
+        }}>
         {t('registerYourPhone')}
       </Text>
 
@@ -94,8 +100,7 @@ export const RegisterForm = () => {
             auto
             color="primary"
             type="submit"
-            css={{ w: 176, mw: (width || 320) - 60, mb: '$4' }}
-            style={{ paddingRight: '100%' }}>
+            css={{ w: '100%', mb: '$4' }}>
             {isLoading ? <Loading size="xs" /> : t('register')}
           </Button>
         )}

@@ -17,8 +17,7 @@ export const Header = () => {
       style={{
         marginBottom: 'auto',
         width: '100%',
-      }}
-    >
+      }}>
       <Head>
         <title>
           Nakhlex {route === '/' ? '| Landing' : route.replace('/', ' | ')}
@@ -28,8 +27,11 @@ export const Header = () => {
       <Row
         align="center"
         justify="space-between"
-        css={{ mw: 1136, mx: 'auto' }}
-      >
+        css={{ mw: 1136, mx: 'auto' }}>
+        <Grid xs={2} sm={0}>
+          <Menu />
+        </Grid>
+
         <Grid xs={12} sm={8}>
           <Row justify="space-between" align="center" css={{ mw: 450 }}>
             <Link href={useLocalLink('/')}>
@@ -41,7 +43,14 @@ export const Header = () => {
               />
             </Link>
 
-            <Row justify="space-between" align="center" css={{ mw: 200 }}>
+            <Row
+              justify="space-between"
+              align="center"
+              css={{
+                mw: 260,
+                '@xsMax': { display: 'none' },
+                '@smMax': { mw: 250 },
+              }}>
               {route !== '/' && (
                 // eslint-disable-next-line react-hooks/rules-of-hooks
                 <Link href={useLocalLink('/')}>
@@ -64,9 +73,8 @@ export const Header = () => {
           </Row>
         </Grid>
 
-        <Grid xs={6} sm={0}>
+        <Grid xs={2} sm={0}>
           <DownloadButton />
-          <Menu />
         </Grid>
 
         <Grid xs={0} sm={4} justify="flex-end">
@@ -82,8 +90,7 @@ export const Header = () => {
                   mr: '$10',
                   ml: '$4',
                   pr: '$10',
-                }}
-              >
+                }}>
                 <Image
                   src="/images/facebook.png"
                   alt="nakhlex facebook"
@@ -102,8 +109,7 @@ export const Header = () => {
                   ml: '$10',
                   m4: '$4',
                   pl: '$10',
-                }}
-              >
+                }}>
                 <Image
                   src="/images/whatsapp.png"
                   alt="nakhlex whatsapp"
