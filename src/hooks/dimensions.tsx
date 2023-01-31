@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export function useWindowSize() {
   const [windowSize, setWindowSize] = useState<{
@@ -26,3 +26,12 @@ export function useWindowSize() {
 
   return windowSize;
 }
+
+export const usePlayerWidth = () => {
+  const { width = 0 } = useWindowSize();
+
+  return useMemo(
+    () => (width > 1246 ? 1136 : width > 960 ? width - 110 : width - 45),
+    [width],
+  );
+};
