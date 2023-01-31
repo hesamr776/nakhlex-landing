@@ -2,7 +2,6 @@ import { useTranslation } from 'next-i18next';
 
 import { Image, Grid, Text } from '@nextui-org/react';
 
-import { RegisterForm } from '../components/RegisterForm';
 import { Socials } from '../components/Socials';
 
 export const Intro = () => {
@@ -11,52 +10,82 @@ export const Intro = () => {
   return (
     <Grid.Container
       gap={1}
-      justify="center"
+      justify="space-between"
       alignItems="flex-start"
-      color="$primary">
-      <Grid xs={12} sm={0}>
+      color="$primary"
+      css={{
+        pt: '$12',
+        mw: 1136,
+        mx: 'auto',
+        height: 450,
+        '@smMax': { height: 577, justifyContent: 'center' },
+      }}
+    >
+      <Grid
+        xs={12}
+        sm={0}
+        css={{ position: 'relative', justifyContent: 'center' }}
+      >
         <Image
-          css={{ mw: 600 }}
+          containerCss={{ mw: 345, position: 'absolute' }}
           alt="Nakhlex Exchange"
-          src="/images/illustration.png"
+          src="/images/illustration-top-mobile.png"
           objectFit="fill"
         />
       </Grid>
 
-      <Grid xs={12} sm={5} direction="column">
+      <Grid
+        xs={12}
+        sm={5}
+        direction="column"
+        alignItems="flex-start"
+        css={{ '@smMax': { alignItems: 'center' } }}
+      >
         <Text
-          h2
           size={20}
           color="$blue700"
           css={{
             lh: '36px',
-            '@xsMax': { fs: 16 },
+            '@smMax': { fs: 16, mt: 320 },
             '@sm': { mt: '$16' },
-            '@md': { mt: '$28' },
-          }}>
+            '@md': { mt: '$20' },
+          }}
+        >
           {t('tradeCrypto')}
         </Text>
 
         <Text
           h1
-          size={48}
-          color="$primary"
-          css={{ lh: '105%', '@xsMax': { fs: 30 } }}>
+          size={60}
+          weight="normal"
+          css={{ lh: '105%', '@smMax': { fs: 35 }, wordSpacing: 10 }}
+        >
           {t('firstLocal')}
         </Text>
+        <Text
+          h2
+          weight="bold"
+          size={60}
+          css={{ lh: '105%', '@smMax': { fs: 35 } }}
+        >
+          {t('firstLocal2')}
+        </Text>
 
-        <RegisterForm />
-
-        <Grid xs={0} sm={12}>
-          <Socials />
-        </Grid>
+        <Socials />
       </Grid>
 
-      <Grid xs={0} sm={6}>
+      <Grid xs={0} sm={6} css={{ position: 'relative' }}>
         <Image
-          css={{ mw: 710, pt: -70 }}
+          containerCss={{
+            mw: 825,
+            w: '147%',
+
+            position: 'absolute',
+            left: 0,
+            top: 0,
+          }}
           alt="Nakhlex Exchange"
-          src="/images/illustration.png"
+          src="/images/illustration-top.png"
           objectFit="fill"
         />
       </Grid>

@@ -1,60 +1,45 @@
-import { Row, Image, Link } from '@nextui-org/react';
+import { Col, Image, Button, Text } from '@nextui-org/react';
+import { useTranslation } from 'next-i18next';
 
-export const Socials = ({ large }: { large?: boolean }) => (
-  <Row
-    css={{ w: large ? 216 : 120, mt: 80, mb: 16 }}
-    align="center"
-    justify="space-between">
-    <Link href="https://www.facebook.com/nakhlexchange" target="_blank">
-      <Image
-        src="/images/facebook.jpg"
-        alt="nakhlex facebook"
-        width={20}
-        height={20}
-        objectFit="cover"
-      />
-    </Link>
+export const Socials = ({ large }: { large?: boolean }) => {
+  const { t } = useTranslation();
 
-    <Link
-      href="https://www.youtube.com/channel/UCChnrcQIziod2XcxVO8vtsQ"
-      target="_blank">
-      <Image
-        src="/images/youtube.jpg"
-        alt="nakhlex youtube"
-        width={28}
-        height={20}
-        objectFit="cover"
-      />
-    </Link>
+  return (
+    <Col css={{ width: 242, mt: large ? 48 : 12, mb: 16 }}>
+      <Button
+        css={{ width: 242, mb: '$8', borderRadius: 8 }}
+        iconRight={
+          <Image
+            src="/images/whatsapp.png"
+            alt="nakhlex whatsapp"
+            width={20}
+            height={20}
+            objectFit="cover"
+          />
+        }
+      >
+        <Text weight="semibold" color="white" style={{ paddingRight: 16 }}>
+          {t('SocialActionHint')}
+        </Text>
+      </Button>
 
-    <Link href="https://t.me/Nakhlexchange" target="_blank">
-      <Image
-        src="/images/telegram.jpg"
-        alt="nakhlex telegram"
-        width={20}
-        height={20}
-        objectFit="cover"
-      />
-    </Link>
-
-    <Link href="http://instagram.com/nakhlex_change" target="_blank">
-      <Image
-        src="/images/instagram.jpg"
-        alt="nakhlex instagram"
-        width={20}
-        height={20}
-        objectFit="cover"
-      />
-    </Link>
-
-    <Link href="https://twitter.com/Nakhlexchange" target="_blank">
-      <Image
-        src="/images/twitter.jpg"
-        alt="nakhlex twitter"
-        width={25}
-        height={20}
-        objectFit="cover"
-      />
-    </Link>
-  </Row>
-);
+      <Button
+        bordered
+        css={{ width: 242, borderRadius: 8, borderWidth: 1 }}
+        iconRight={
+          <Image
+            src="/images/facebook.png"
+            alt="nakhlex facebook"
+            width={20}
+            height={20}
+            objectFit="cover"
+          />
+        }
+      >
+        <Text weight="semibold" color="primary" style={{ paddingRight: 16 }}>
+          {t('SocialActionHint')}
+        </Text>
+      </Button>
+    </Col>
+  );
+};
