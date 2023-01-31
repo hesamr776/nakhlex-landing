@@ -11,8 +11,9 @@ import {
   Input as NextInput,
   Row,
   Text,
-  Image,
   Loading,
+  Col,
+  InputProps,
 } from '@nextui-org/react';
 import { useWindowSize } from '../hooks/dimensions';
 import { GAEvent } from '../hooks/useFirebase';
@@ -35,12 +36,7 @@ export const RegisterForm = () => {
       .matches(phoneRegExp, t('yupValid', { field: t('mobile') })),
   });
 
-  const {
-    handleSubmit,
-    control,
-    reset,
-    formState: { isValid },
-  } = useForm<RegisterNow>({
+  const { handleSubmit, control, reset } = useForm<RegisterNow>({
     mode: 'onChange',
     resolver: yupResolver(schema),
   });
@@ -57,36 +53,69 @@ export const RegisterForm = () => {
   };
 
   return (
-    <>
-      <Text css={{ mb: '$4', '@xsMax': { w: 260 }, '@xs': { w: 400, mt: 46 } }}>
+    <Col
+      css={{
+        bg: 'White',
+        width: 496,
+        mw: '100%',
+        borderRadius: 16,
+        mt: '$12',
+        px: '$8',
+        py: '$10',
+      }}>
+      <Text size={13} color="secondary" css={{ m: '$0' }}>
         {t('registerYourPhone')}
       </Text>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Input control={control} name="phone" />
+        <Input
+          control={control}
+          name="phone"
+          contentRight={
+            (width || 320) > 960 ? (
+              <Button
+                auto
+                color="primary"
+                type="submit"
+                css={{
+                  w: 176,
+                  mw: (width || 320) - 60,
+                  mb: '$0',
+                  ml: '-145px',
+                }}
+                style={{ paddingRight: '100%' }}>
+                {isLoading ? <Loading size="xs" /> : t('register')}
+              </Button>
+            ) : undefined
+          }
+        />
+        {(width || 320) < 960 && (
+          <Button
+            auto
+            color="primary"
+            type="submit"
+            css={{ w: 176, mw: (width || 320) - 60, mb: '$4' }}
+            style={{ paddingRight: '100%' }}>
+            {isLoading ? <Loading size="xs" /> : t('register')}
+          </Button>
+        )}
 
-        <Button
-          auto
-          color="primary"
-          type="submit"
-          disabled={!isValid || isLoading}
-          css={{ w: 400, mw: (width || 320) - 60, mb: '$0' }}
-        >
-          {isLoading ? <Loading size="xs" /> : t('register')}
-        </Button>
-
-        <Text color="gray" size={10} css={{ mt: '$8' }}>
+        <Text color="gray" size={10} dir="ltr">
           This site is protected by reCAPTCHA and the Google
           <a href="https://policies.google.com/privacy"> Privacy Policy</a> and
           <a href="https://policies.google.com/terms"> Terms of Service</a>{' '}
           apply
         </Text>
       </form>
-    </>
+    </Col>
   );
 };
 
-export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
+export const Input = ({
+  control,
+  name,
+  contentRight,
+}: UseControllerProps<RegisterNow> & Partial<InputProps>) => {
   const { t } = useTranslation('common');
   const { width } = useWindowSize();
 
@@ -116,14 +145,14 @@ export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
       className="flex-1 focus-visible:border-0"
       placeholder={t('enterMobile')}
       css={{
-        w: 400,
+        w: '100%',
         mw: (width || 320) - 60,
         my: '$8',
         borderColor,
         direction: 'ltr',
+        borderRadius: 8,
       }}
       size="md"
-      bordered
       name={name}
       value={value}
       type="tel"
@@ -138,24 +167,11 @@ export const Input = ({ control, name }: UseControllerProps<RegisterNow>) => {
       helperText={error?.message}
       helperColor="error"
       contentLeft={
-        <Row css={{ ml: '$7' }} align="center" justify="space-between">
-          <Image
-            src="/images/iraq.png"
-            alt="nakhlex iraq"
-            width={20}
-            height={14}
-          />
+        <Row css={{ ml: '$4' }} align="center" justify="space-between">
           <Text>+964</Text>
         </Row>
       }
-      contentRight={
-        <Image
-          src="/images/mobile.png"
-          alt="nakhlex iraq"
-          width={16}
-          height={21.5}
-        />
-      }
+      contentRight={contentRight}
     />
   );
 };

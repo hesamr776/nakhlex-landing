@@ -1,63 +1,57 @@
 import { Image, Link, Text, Grid, Row, Col } from '@nextui-org/react';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
+
 import { GAEvent } from '../hooks/useFirebase';
-import { languages } from './SelectLanguage';
+import { RegisterForm } from './RegisterForm';
 
 export const DownloadApp = () => {
   const { t } = useTranslation();
-  const { locale } = useRouter();
-
-  const { isRTL } = languages[locale as 'ar' | 'ku' | 'en'];
 
   return (
-    <section id="DownloadApp">
-      <Grid.Container
-        alignItems="center"
-        justify="space-around"
-        css={{
-          border: '1px solid black',
-          borderRadius: 12,
-          mb: 80,
-          px: 11,
-          mt: 120,
-          w: 'calc(100% - 200px)',
-          mr: isRTL ? 200 : 0,
-          ml: isRTL ? 0 : 200,
-          pb: 0,
-          '@smMax': { mt: 250, mr: 0, ml: 0, w: '100%', pb: 40 },
-        }}
-      >
-        <Grid
-          xs={12}
-          sm={4}
-          css={{
-            mt: -46,
-            mr: isRTL ? -220 : 0,
-            ml: isRTL ? 0 : -220,
-            '@smMax': { mt: -200, mr: 0, ml: 0, mb: '$10' },
-          }}
-        >
-          <Image
-            src="/images/download.png"
-            alt="Download Nakhlex"
-            css={{ mw: 330 }}
-          />
-        </Grid>
-
-        <Grid xs={12} sm={4} justify="center">
-          <Text size={32} color="$primary" weight="bold" css={{ mw: 260 }}>
+    <Grid.Container
+      id="DownloadApp"
+      justify="space-around"
+      css={{
+        bg: '$primary',
+        borderRadius: 24,
+        mw: 1136,
+        h: 450,
+        mt: 120,
+        mb: 80,
+        mx: 'auto',
+        px: '$17',
+        pt: '$12',
+        '@smMax': { mt: 250, mr: 0, ml: 0, w: '100%', pb: 40 },
+      }}
+    >
+      <Grid xs={12} sm={6} justify="center">
+        <Col>
+          <Text size={36} color="$white" weight="bold">
             {t('downloadNakhlex')}
           </Text>
-        </Grid>
 
-        <Grid xs={12} sm={4} direction="column" alignItems="center">
-          <Text size={14} css={{ pt: '$8', pb: '$12', lh: '$lg' }}>
+          <Text size={24} css={{ pb: '$14', lh: '$lg' }} color="$white">
             {t('downloadNakhlexHint')}
           </Text>
 
-          <Row css={{ mw: 330 }}>
-            <Col>
+          <Row align="center" justify="flex-start">
+            <Link
+              onClick={() => {
+                GAEvent('store', { store: 'google-play' });
+              }}
+              href="https://bit.ly/3yP4JvB"
+              target="_blank"
+            >
+              <Image
+                width={160}
+                height={47}
+                src="/images/google-play.png"
+                alt="nakhlex google play"
+                objectFit="cover"
+              />
+            </Link>
+
+            {/* <Col>
               <Link
                 onClick={() => {
                   GAEvent('store', { store: 'app-store' });
@@ -66,31 +60,57 @@ export const DownloadApp = () => {
                 // target="_blank"
               >
                 <Image
+                  width={160}
+                  height={47}
                   src="/images/app-store.png"
                   alt="nakhlex app store"
                   objectFit="cover"
                 />
               </Link>
-            </Col>
+            </Col> */}
 
-            <Col>
-              <Link
-                onClick={() => {
-                  GAEvent('store', { store: 'google-play' });
-                }}
-                href="https://bit.ly/3yP4JvB"
-                target="_blank"
-              >
-                <Image
-                  src="/images/google-play.png"
-                  alt="nakhlex google play"
-                  objectFit="cover"
-                />
-              </Link>
-            </Col>
+            <Link
+              css={{ mx: '$4' }}
+              onClick={() => {
+                GAEvent('store', { store: 'pwa-button' });
+              }}
+              href="https://web.nakhlex.com"
+              target="_blank"
+            >
+              <Image
+                width={160}
+                height={47}
+                src="/images/pwa-button.png"
+                alt="nakhlex pwa"
+                objectFit="cover"
+              />
+            </Link>
           </Row>
-        </Grid>
-      </Grid.Container>
-    </section>
+
+          <RegisterForm />
+        </Col>
+      </Grid>
+
+      <Grid
+        xs={12}
+        sm={6}
+        css={{
+          position: 'relative',
+          '@smMax': { mt: -200, mr: 0, ml: 0, mb: '$10' },
+        }}
+      >
+        <Image
+          src="/images/mobile-mock.png"
+          alt="Download Nakhlex"
+          containerCss={{
+            position: 'absolute',
+            top: -94,
+            right: -50,
+            overflow: 'visible',
+          }}
+          css={{ mw: 656, width: '150%' }}
+        />
+      </Grid>
+    </Grid.Container>
   );
 };
